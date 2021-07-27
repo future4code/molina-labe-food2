@@ -35,6 +35,7 @@ export const updateProfile = (body, clear, history) => {
     axios.put(`${BASE_URL}/profile`, body)
     .then((res) => {
         localStorage.setItem("token", res.data.token)
+        console.log(res)
         clear()
         goToFeedPage(history)
     })
