@@ -1,12 +1,14 @@
 import React from 'react'
 import search from '../../assets/search.svg'
 import CardProducts from '../../components/cards/CardProducts/CardProducts'
+import Header from '../../components/header/Header'
 
 import { Container } from './styles'
 
 const HomePage = () => {
     return (
         <Container>
+            <Header/>
             <div className='search'>
                 <img src={search} alt="search" />
                 <input type="text" placeholder='Restaurante' />
