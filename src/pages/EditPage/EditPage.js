@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { BiChevronLeft } from 'react-icons/bi'
 /* import { updateProfile } from '../../services/put' */
 import { /* Container, */ Header, StyledBack, Form, InputsContainer, IconDiv } from './styled'
+import OrderInProgress from '../../components/OrderInProgress/OrderInProgress';
 
 const EditPage = () => {
 
@@ -81,7 +82,7 @@ const EditPage = () => {
                 </InputsContainer>
             </Form>
 
-
+        <OrderInProgress/>
         </div>
 
 
