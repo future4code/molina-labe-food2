@@ -5,6 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  padding-bottom: 6vh;
 
   .search {
     display: flex;
