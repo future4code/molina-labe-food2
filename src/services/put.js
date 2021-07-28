@@ -1,14 +1,14 @@
 import { responsiveFontSizes } from "@material-ui/core"
 import axios from "axios"
 import { BASE_URL } from "../constants/url"
-import { goToFeedPage } from "../router/coordinator"
+/* import { goToFeedPage } from "../router/Coordinator" */
 
 export const addAdress = (body, clear, history) => {
     const token = localStorage.getItem('token')
 
    const headers = {
         headers:{
-            Authorization: token
+            Authorization: localStorage.getItem('token')
         }
     }
 
@@ -16,7 +16,7 @@ export const addAdress = (body, clear, history) => {
     .then((res) => {
         localStorage.setItem("token", res.data.token)
         clear()
-        goToFeedPage(history)
+        /* goToFeedPage(history) */
         console.log('ADD ADRESS', res)
     })
     .catch((err) => {
@@ -30,7 +30,7 @@ export const updateProfile = (body, clear, history) => {
 
    const headers = {
         headers:{
-            Authorization: token
+            Authorization: localStorage.getItem('token')
         }
     }
 
@@ -39,7 +39,7 @@ export const updateProfile = (body, clear, history) => {
         localStorage.setItem("token", res.data.token)
         console.log('UPDATE PROFILE', res)
         clear()
-        goToFeedPage(history)
+        /* goToFeedPage(history) */
     })
     .catch((err) => {
         console.log(err)

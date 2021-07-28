@@ -6,7 +6,7 @@ export const login = (body, clear, history) => {
 
     const headers = {
         headers: {
-            Authorization: token
+            Authorization: localStorage.getItem('token')
         }
     }
 
@@ -26,7 +26,7 @@ export const signup = (body, clear, history) => {
 
     const headers = {
         headers: {
-            Authorization: token
+            Authorization: localStorage.getItem('token')
         }
     }
 
@@ -47,7 +47,7 @@ export const placeOrder = (body, clear, history) => {
 
     const headers = {
         headers:{
-            Authorization: token
+            Authorization: localStorage.getItem('token')
         }
     }
 

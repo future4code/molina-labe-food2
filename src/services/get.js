@@ -4,7 +4,7 @@ import { BASE_URL, token } from "../constants/url"
 export const getProfile = (body, clear, history) => {
     const headers = {
         headers: {
-            Authorization: token
+            Authorization: localStorage.getItem('token')
         }
     }
     axios.get(`${BASE_URL}/profile`, body, headers)
@@ -22,7 +22,7 @@ export const getFullAddress = (body, clear, history) => {
 
     const headers = {
         headers: {
-            Authorization: token
+            Authorization: localStorage.getItem('token')
         }
     }
 
@@ -65,7 +65,7 @@ export const getActiveOrder = (body, clear, history) => {
 
     const headers = {
         headers: {
-            Authorization: token
+            Authorization: localStorage.getItem('token')
         }
     }
     axios.get(`${BASE_URL}/active-order`, body, headers)
@@ -83,7 +83,7 @@ export const ordersHistory = (body, clear, history) => {
 
     const headers = {
         headers: {
-            Authorization: token
+            Authorization: localStorage.getItem('token')
         }
     }
     axios.get(`${BASE_URL}/orders/history`, body, headers)
