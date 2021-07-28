@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  padding-bottom: 6vh;
+  padding-bottom: 7vh;
 
   .search {
     display: flex;
@@ -14,7 +14,7 @@ export const Container = styled.div`
     height: 56px;
     border: 1px solid #b8b8b8;
     border-radius: 2px;
-    width: 95%;
+    width: 90%;
 
     img {
       height: 24px;

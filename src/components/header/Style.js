@@ -7,8 +7,7 @@ export const HeaderContainer = styled.div`
     position: fixed;
     width: 100%;
     bottom: 0;
-    border: 1px solid #b8b8b8;
-    border-radius: 4px;
+    border-top: 1px solid #b8b8b8;
     height: 6vh;
     background-color: white;
 `
