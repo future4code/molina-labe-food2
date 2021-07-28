@@ -1,10 +1,16 @@
 import axios from "axios"
 import { BASE_URL } from "../constants/url"
-import { goToHome } from "../router/cordinator"
+import { goToHome } from "../router/Coordinator"
 
 export const login = (body, clear, history) => {
 
-    axios.post(`${BASE_URL}/login`, body)
+    const headers = {
+        headers: {
+            Authorization: localStorage.getItem('token')
+        }
+    }
+
+    axios.post(`${BASE_URL}/login`, body, headers)
     .then((res) => {
         localStorage.setItem("token", res.data.token)
         clear()
@@ -34,7 +40,7 @@ export const placeOrder = (body, clear, history) => {
 
     const headers = {
         headers:{
-            Authorization: token
+            Authorization: localStorage.getItem('token')
         }
     }
 

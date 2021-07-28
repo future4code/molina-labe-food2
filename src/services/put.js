@@ -1,21 +1,23 @@
+import { responsiveFontSizes } from "@material-ui/core"
 import axios from "axios"
-import { BASE_URL } from "../constants/urls"
-import { goToFeedPage } from "../routes/coordinator"
+import { BASE_URL } from "../constants/url"
+/* import { goToFeedPage } from "../router/Coordinator" */
 
 export const addAdress = (body, clear, history) => {
     const token = localStorage.getItem('token')
 
-    headers = {
+   const headers = {
         headers:{
-            Authorization: token
+            Authorization: localStorage.getItem('token')
         }
     }
 
-    axios.put(`${BASE_URL}/address`, body)
+    axios.put(`${BASE_URL}/address`, body, headers)
     .then((res) => {
         localStorage.setItem("token", res.data.token)
         clear()
-        goToFeedPage(history)
+        /* goToFeedPage(history) */
+        console.log('ADD ADRESS', res)
     })
     .catch((err) => {
         console.log(err)
@@ -26,18 +28,18 @@ export const addAdress = (body, clear, history) => {
 export const updateProfile = (body, clear, history) => {
     const token = localStorage.getItem('token')
 
-    headers = {
+   const headers = {
         headers:{
-            Authorization: token
+            Authorization: localStorage.getItem('token')
         }
     }
 
-    axios.put(`${BASE_URL}/profile`, body)
+    axios.put(`${BASE_URL}/profile`, body, headers)
     .then((res) => {
         localStorage.setItem("token", res.data.token)
-        console.log(res)
+        console.log('UPDATE PROFILE', res)
         clear()
-        goToFeedPage(history)
+        /* goToFeedPage(history) */
     })
     .catch((err) => {
         console.log(err)

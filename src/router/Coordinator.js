@@ -20,5 +20,5 @@ export const goToOrder = (history) => {
     history.push('/pedido')
 }
 export const goToProfile = (history) => {
-    history.push(`/perfil`)
+    history.push('/perfil')  
 }

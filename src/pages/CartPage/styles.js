@@ -10,13 +10,13 @@ export const ButtonContainer = styled.div`
     width: 100%;
     bottom: 14vw;
     position: fixed;
-            button {
-                width: 88vw;
-                height: 6.4vh;
-                background-color: rgba(232, 110, 90, 0.5);
-                border: none;
-                color: black;
-            }
+        button {
+            width: 88vw;
+            height: 6.4vh;
+            background-color: rgba(232, 110, 90, 0.5);
+            border: none;
+            color: black;
+        }
 `
 
 export const HeaderContainer = styled.div`
@@ -35,22 +35,23 @@ export const ItensContainer = styled.div`
 export const ShippingContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 4px;
+    padding: 0px 16px 0px 16px;
 `
 export const BillContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 4px;
+    padding: 16px;
+    padding: 0px 16px 0px 16px;
 `
 
 export const TextContainer = styled.div`
     display: flex;
     border-bottom: 2px solid black;
-    padding: 4px;
+    padding: 0px 0px 0px 16px;
 `
 export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 4px;
+    padding: 16px 0px 0px 16px;
 `

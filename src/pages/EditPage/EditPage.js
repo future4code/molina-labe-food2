@@ -3,7 +3,7 @@ import useForm from '../../hooks/useForm'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { BiChevronLeft } from 'react-icons/bi'
-/* import { updateProfile } from '../../services/put' */
+import { updateProfile } from '../../services/put'
 import { /* Container, */ Header, StyledBack, Form, InputsContainer, IconDiv } from './styled'
 import { useHistory } from 'react-router-dom'
 import OrderInProgress from '../../components/OrderInProgress/OrderInProgress';
@@ -17,10 +17,11 @@ const EditPage = () => {
         history.push('/perfil')
     }
 
-    /* const onClickSubmit = (body) =>{
+    const onClickSubmit = (event) =>{
+        event.preventDefault()
         updateProfile(form)
-    } */
-
+    }
+    console.log(form)
     return (
         <div>
             <Header>
@@ -31,7 +32,7 @@ const EditPage = () => {
                 </IconDiv>
             </Header>
 
-            <Form /* onSubmit={onClickSubmit} */>
+            <Form onSubmit={onClickSubmit}>
 
                 <InputsContainer>
                     <TextField
