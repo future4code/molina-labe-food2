@@ -43,7 +43,6 @@ export const Container = styled.div`
     gap: 8px;
 
     a {
-      text-decoration: none;
       color: black;
       font-size: 16px;
       width: 87px;

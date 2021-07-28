@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import search from '../../assets/search.svg'
 import CardProducts from '../../components/cards/CardProducts/CardProducts'
 import Header from '../../components/header/Header'
+import { getRestaurants } from '../../services/get'
 
 import { Container } from './styles'
 
 const HomePage = () => {
+    const [restaurants, setRestaurants] = useState()
+
+    useEffect(() => {
+        getRestaurants(setRestaurants)
+    }, [])
+
     return (
         <>
             <Container>
@@ -14,13 +21,13 @@ const HomePage = () => {
                     <input type="text" placeholder='Restaurante' />
                 </div>
                 <div className='menu'>
-                    <a href="">Burger</a>
-                    <a href="">Asiática</a>
-                    <a href="">Massas</a>
-                    <a href="">Saudáveis</a>
+                    {restaurants && restaurants.map(({ id, category }) => {
+                        return <a href="" key={id}>{category}</a>
+                    })}
                 </div>
-                <CardProducts />
-                <CardProducts />
+                {restaurants && restaurants.map((restaurant, index) => {
+                    return <CardProducts restaurants={restaurant} key={index} />
+                })}
                 <CardProducts />
             </Container>
             <Header />
