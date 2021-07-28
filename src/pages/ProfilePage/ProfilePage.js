@@ -1,37 +1,26 @@
 import React from 'react'
-import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
+import CardHistory from '../../components/cards/CardHistory/CardHistory'
+import { useProtectedPage } from '../../hooks/useProtectedPage'
+import { useHistory } from 'react-router'
+import useRequestData from '../../hooks/useRequestData'
 
 
 const ProfilePage = () => {
+    useProtectedPage()
+    const history = useHistory()
+    const profile = useRequestData({}, `${BASE_URL}/perfil`)
+    const order = useRequestData({}, `${BASE_URL}/pedido`)
+
+
     return (
-        <div>
-            <h3>My profile</h3>
-            <div>
-                <p>Name</p>
-                <p>Email</p>
-                <p>Phone</p>
-            </div>
-
-            <div>
-                <p>Registered Address</p>
-                <p>
-                    777 TOWNE CENTRE DRIVE
-                    Lathrop, Califórnia 95330
-                </p>
-            </div>
-
-            <div>
-                <p>Order History</p>
-                <hr/>
-            </div>
-
-            <div>
-                <p>Restaurant name</p>
-                <p>Date</p>
-                <p>SEUBTOTAL R$</p>
-            </div>
-
-        </div>
+        <CardHistory
+        key={profile.id}
+        name={profile.name}
+        email={profile.email}
+        cpf={profile.cpf}
+        // onClick={() =}
+        />
+        
     )
 }
 
