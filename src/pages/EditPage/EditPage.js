@@ -5,13 +5,17 @@ import Button from '@material-ui/core/Button';
 import { BiChevronLeft } from 'react-icons/bi'
 /* import { updateProfile } from '../../services/put' */
 import { /* Container, */ Header, StyledBack, Form, InputsContainer, IconDiv } from './styled'
+import { useHistory } from 'react-router-dom'
+import OrderInProgress from '../../components/OrderInProgress/OrderInProgress';
 
 const EditPage = () => {
 
-
+    const history = useHistory()
     const { form, onChange } = useForm({ name: "", email: "", cpf: "" })
 
-
+    const goBackProfile = () => {
+        history.push('/perfil')
+    }
 
     /* const onClickSubmit = (body) =>{
         updateProfile(form)
@@ -21,9 +25,9 @@ const EditPage = () => {
         <div>
             <Header>
                 <IconDiv>
-                <StyledBack> <BiChevronLeft /> </StyledBack>
-                
-                <h2>Editar</h2>
+                    <StyledBack> <BiChevronLeft onClick={goBackProfile} /> </StyledBack>
+
+                    <h2>Editar</h2>
                 </IconDiv>
             </Header>
 
@@ -81,7 +85,7 @@ const EditPage = () => {
                 </InputsContainer>
             </Form>
 
-
+            <OrderInProgress />
         </div>
 
 
