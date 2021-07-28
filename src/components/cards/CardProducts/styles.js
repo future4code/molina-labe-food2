@@ -3,9 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 95%;
-  border: solid 1px #b8b8b8;
-  border-radius: 8px;
+  width: 90vw;
   align-items: center;
 
   .image {
@@ -17,11 +15,18 @@ export const Container = styled.div`
   .text {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    padding: 10px;
+    margin-top: -4px;
+    width: 94%;
+    gap: 4px;
+    border: solid 1px #b8b8b8;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 
     h4 {
       color: #e86e5a;
       font-size: 16px;
+      font-weight: normal;
     }
 
     > div {

@@ -7,22 +7,24 @@ import { Container } from './styles'
 
 const HomePage = () => {
     return (
-        <Container>
-            <Header/>
-            <div className='search'>
-                <img src={search} alt="search" />
-                <input type="text" placeholder='Restaurante' />
-            </div>
-            <div className='menu'>
-                <a href="">Burger</a>
-                <a href="">Asiática</a>
-                <a href="">Massas</a>
-                <a href="">Saudáveis</a>
-            </div>
-            <CardProducts />
-            <CardProducts />
-            <CardProducts />
-        </Container>
+        <>
+            <Container>
+                <div className='search'>
+                    <img src={search} alt="search" />
+                    <input type="text" placeholder='Restaurante' />
+                </div>
+                <div className='menu'>
+                    <a href="">Burger</a>
+                    <a href="">Asiática</a>
+                    <a href="">Massas</a>
+                    <a href="">Saudáveis</a>
+                </div>
+                <CardProducts />
+                <CardProducts />
+                <CardProducts />
+            </Container>
+            <Header />
+        </>
     )
 }
 
