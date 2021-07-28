@@ -1,13 +1,11 @@
 import axios from "axios"
-import { BASE_URL } from "../constants/urls"
-import { goToFeedPage } from "../routes/coordinator"
+import { BASE_URL, token } from "../constants/url"
 
 export const getProfile = (body, clear, history) => {
     axios.get(`${BASE_URL}/profile`, body)
     .then((res) => {
         localStorage.setItem("token", res.data.token)
         clear()
-        goToFeedPage(history)
     })
     .catch((err) => {
         console.log(err)
@@ -20,7 +18,6 @@ export const getFullAddress = (body, clear, history) => {
     .then((res) => {
         localStorage.setItem("token", res.data.token)
         clear()
-        goToFeedPage(history)
     })
     .catch((err) => {
         console.log(err)
@@ -28,12 +25,10 @@ export const getFullAddress = (body, clear, history) => {
     })
 }
 
-export const getRestaurants = (body, clear, history) => {
-    axios.get(`${BASE_URL}/restaurants`, body)
+export const getRestaurants = (setData) => {
+    axios.get(`${BASE_URL}/restaurants`, { headers: { auth: token }})
     .then((res) => {
-        localStorage.setItem("token", res.data.token)
-        clear()
-        goToFeedPage(history)
+        setData(res.data.restaurants)
     })
     .catch((err) => {
         console.log(err)
@@ -42,16 +37,16 @@ export const getRestaurants = (body, clear, history) => {
 }
 
 export const getRestaurantDetail = (body, clear, history) => {
-    axios.get(`${BASE_URL}/restaurants/${restaurantId}`, body)
-    .then((res) => {
-        localStorage.setItem("token", res.data.token)
-        clear()
-        goToFeedPage(history)
-    })
-    .catch((err) => {
-        console.log(err)
-        alert("Senha e/ou Email, incorreto!")
-    })
+    // axios.get(`${BASE_URL}/restaurants/${restaurantId}`, body)
+    // .then((res) => {
+    //     localStorage.setItem("token", res.data.token)
+    //     clear()
+    //     goToFeedPage(history)
+    // })
+    // .catch((err) => {
+    //     console.log(err)
+    //     alert("Senha e/ou Email, incorreto!")
+    // })
 }
 
 export const getActiveOrder = (body, clear, history) => {
@@ -59,7 +54,6 @@ export const getActiveOrder = (body, clear, history) => {
     .then((res) => {
         localStorage.setItem("token", res.data.token)
         clear()
-        goToFeedPage(history)
     })
     .catch((err) => {
         console.log(err)
@@ -72,7 +66,6 @@ export const ordersHistory = (body, clear, history) => {
     .then((res) => {
         localStorage.setItem("token", res.data.token)
         clear()
-        goToFeedPage(history)
     })
     .catch((err) => {
         console.log(err)
