@@ -14,41 +14,8 @@ import { FormControl, OutlinedInput } from "@material-ui/core";
 import useForm from '../../hooks/useForm'
 import { Link, useHistory } from "react-router-dom";
 import { login } from "../../services/post";
+import {MainContainer, ImgContainer} from './style'
 
-const GlobalStyle = createGlobalStyle`
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-`;
-
-const MainContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    p {
-        font-size: 16px;
-        letter-spacing: -0.39px;
-        margin-bottom: 20px;
-    }
-  
-    a{
-        text-decoration: none;
-    }
-`;
-
-const ImgContainer = styled.div`
-  margin: 88px 0 28px 0;
-  max-width: 100%;
-  width: 104px;
-  height: 58px;
-
-  img {
-    width: 100%;
-  }
-`;
 
 const LoginPage = () => {
     const {form, setForm, onChange, cleanFields} = useForm({
@@ -79,8 +46,6 @@ const LoginPage = () => {
     }
 
     return (
-        <>
-        <GlobalStyle />
         <MainContainer>
             <ImgContainer>
             <img src={logoFutureEatsInvert} alt='Imagem da logo'/>
@@ -143,7 +108,6 @@ const LoginPage = () => {
            
             </Container>
         </MainContainer>
-    </>
   );
 };
 
