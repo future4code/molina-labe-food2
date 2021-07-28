@@ -42,5 +42,7 @@ h2{
       size: 16px;
       letter-spacing: -0.39px;
       color: black;
+      display: flex;
+      align-items: center;
   }
 `
