@@ -1,7 +1,5 @@
 import React from "react";
-import styled from "styled-components";
 import logoFutureEatsInvert from "../../assets/logoFutureEatsInvert.svg";
-import { createGlobalStyle } from "styled-components";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
@@ -18,6 +16,7 @@ import {MainContainer, ImgContainer} from './style'
 
 
 const LoginPage = () => {
+    useUnprotectedPage()
     const {form, setForm, onChange, cleanFields} = useForm({
         email: '',
         password: '',
@@ -53,58 +52,61 @@ const LoginPage = () => {
 
             <p>Entrar</p>
             <Container component="main" maxWidth="xs">
-            <form onSubmit={onSubmitForm}>
-                <TextField
-                    fullWidth
-                    margin='normal'
-                    id="outlined-read-only-input"
-                    label="Email"
-                    variant="outlined"
-                    name='email'
-                    value={form.email}
-                    onChange={onChange}
-                />
-                <FormControl fullWidth variant="outlined">   
-                    <InputLabel htmlFor="outlined-adornment-password">Senha</InputLabel>
-                    <OutlinedInput
-                        id="outlined-adornment-password"
-                        name='password'
-                        type={form.showPassword ? 'text' : 'password'}
-                        value={form.password}
+                <form onSubmit={onSubmitForm}>
+                    <TextField
+                        fullWidth
+                        margin='normal'
+                        id="outlined-read-only-input"
+                        label="Email"
+                        variant="outlined"
+                        name='email'
+                        value={form.email}
                         onChange={onChange}
-                        endAdornment={
-                        <InputAdornment position="end">
-                            <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={handleClickShowPassword}
-                            onMouseDown={handleMouseDownPassword}
-                            edge="end"
-                            >
-                            {form.showPassword ? <Visibility /> : <VisibilityOff />}
-                            </IconButton>
-                        </InputAdornment>
-                        }
-                        labelWidth={70}
+                        type='email'
+                        required
                     />
-                </FormControl>
-                
-                <Button 
-                    variant='contained'
-                    color='primary' 
-                    fullWidth
-                    size="medium"
-                    type='submit'
-                >
-                    Entrar
-                </Button>
-            </form>
-            <Link to={'/cadastrar'}>
-                <Button 
-                    color="primary"
-                >
-                    Não possui cadastro? Clique aqui.
-                </Button>
-            </Link>
+
+                    <FormControl fullWidth variant="outlined">   
+                        <InputLabel htmlFor="outlined-adornment-password">Senha</InputLabel>
+                        <OutlinedInput
+                            id="outlined-adornment-password"
+                            name='password'
+                            type={form.showPassword ? 'text' : 'password'}
+                            value={form.password}
+                            onChange={onChange}
+                            endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={handleClickShowPassword}
+                                onMouseDown={handleMouseDownPassword}
+                                edge="end"
+                                >
+                                {form.showPassword ? <Visibility /> : <VisibilityOff />}
+                                </IconButton>
+                            </InputAdornment>
+                            }
+                            labelWidth={70}
+                        />
+                    </FormControl>
+                    
+                    <Button 
+                        variant='contained'
+                        color='primary' 
+                        fullWidth
+                        size="medium"
+                        type='submit'
+                    >
+                        Entrar
+                    </Button>
+                </form>
+                <Link to={'/cadastrar'}>
+                    <Button 
+                        color="primary"
+                    >
+                        Não possui cadastro? Clique aqui.
+                    </Button>
+                </Link>
            
             </Container>
         </MainContainer>
