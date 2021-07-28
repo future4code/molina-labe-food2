@@ -35,24 +35,22 @@ export const signup = (body, clear, history) => {
     })
 }
 
-export const placeOrder = (body, clear, history) => {
-    const token = localStorage.getItem('token')
-
+export const placeOrder = (body, clear) => {
+    
     const headers = {
-        headers:{
+        headers: {
             Authorization: localStorage.getItem('token')
         }
     }
 
     axios.post(`${BASE_URL}/restaurants/:restaurantId/order`, body, headers)
-    .then((res) => {
-        localStorage.setItem("token", res.data.token)
-        clear()
-        // goToFeedPage(history)
-    })
-    .catch((err) => {
-        console.log(err)
-        alert("Senha e/ou Email, incorreto!")
-    })
+        .then((res) => {
+            localStorage.setItem("token", res.data.token)
+            clear()
+        })
+        .catch((err) => {
+            console.log(err)
+            alert("Erro em requisitar!")
+        })
 }
 

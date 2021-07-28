@@ -5,9 +5,20 @@ import { goToHome } from '../../router/cordinator'
 import { useHistory } from 'react-router'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 import { IconContainer } from './styled'
+import useForm from '../../hooks/useForm'
+import { placeOrder } from '../../services/post'
 
 const OrderPage = () => {
     const history = useHistory()
+    const [form, onChange, clear] = useForm({products: [{id: "", quantity: ""}], paymentMethod: ""})
+
+    const onSubmitForm = (event) => {
+        event.preventDefault()
+        placeOrder(form, clear)
+        console.log(form)
+    }
+
+
 
     return (
         <MainContainer>
@@ -17,7 +28,9 @@ const OrderPage = () => {
                     <p>Restaurantes</p>
                 </IconContainer>
             </HeaderContainer>
-            <CardProducts />
+            <form>
+                <CardProducts />
+            </form>
         </MainContainer>
     )
 }
