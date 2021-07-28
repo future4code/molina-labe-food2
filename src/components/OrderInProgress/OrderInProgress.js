@@ -1,17 +1,17 @@
 import React from 'react'
-import {OrderCard, IconDiv, InfoDiv, Icone} from './styled'
+import { OrderCard, IconDiv, InfoDiv, Icone } from './styled'
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 
-const OrderInProgress = () => {
+const OrderInProgress = (props) => {
     return (
         <OrderCard>
             <IconDiv>
-                <Icone> <AccessTimeIcon fontSize='large'/> </Icone>
+                <Icone> <AccessTimeIcon fontSize='large' /> </Icone>
             </IconDiv>
             <InfoDiv>
                 <p>Pedido em andamento</p>
-                <h5>Bullguer Vila Madale</h5>
-                <h5>SUBTOTAL R$67,00</h5>
+                <h5>{props.restaurantName}</h5>
+                <h5>SUBTOTAL R${props.totalPrice},00</h5>
             </InfoDiv>
         </OrderCard>
     )
