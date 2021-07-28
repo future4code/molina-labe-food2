@@ -1,5 +1,5 @@
 import React from 'react'
-import { 
+import {
     ButtonContainer,
     HeaderContainer,
     MainContainer,
@@ -10,8 +10,11 @@ import {
     FormContainer
 } from './styles'
 import Button from '@material-ui/core/Button';
+import { useHistory } from 'react-router-dom';
+
 
 const CartPage = () => {
+
     return (
         <MainContainer>
             <HeaderContainer>
@@ -32,20 +35,20 @@ const CartPage = () => {
                 <p>Forma de pagamento</p>
             </TextContainer>
             <FormContainer>
-            <div>
-                <input type="radio"/>
-                <label>Dinheiro</label>
-            </div>
-            <div>
-                <input type="radio"/>
-                <label>Cartão dinheiro</label>
-            </div>
+                <div>
+                    <input type="radio" />
+                    <label>Dinheiro</label>
+                </div>
+                <div>
+                    <input type="radio" />
+                    <label>Cartão dinheiro</label>
+                </div>
             </FormContainer>
             <ButtonContainer>
-                <Button 
-                variant="contained" 
-                color="secondary">
-                Confirmar
+                <Button
+                    variant="contained"
+                    color="secondary">
+                    Confirmar
                 </Button>
             </ButtonContainer>
         </MainContainer>
