@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { HeaderContainer } from "./Style"
 import HouseOutlinedIcon from '@material-ui/icons/HouseOutlined';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
@@ -7,9 +8,9 @@ import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
 const Header = () => {
     return (
         <HeaderContainer>
-            <a href="http://localhost:3000/"><span><HouseOutlinedIcon fontSize="large"/></span></a>
-            <a href="http://localhost:3000/carrinho"><span><ShoppingCartOutlinedIcon fontSize="large"/></span></a>
-            <a href="http://localhost:3000/perfil"><span><PersonOutlineOutlinedIcon fontSize="large"/></span></a>
+            <Link to="/"><span><HouseOutlinedIcon fontSize="large"/></span></Link>
+            <Link to="/carrinho"><span><ShoppingCartOutlinedIcon fontSize="large"/></span></Link>
+            <Link to="/perfil"><span><PersonOutlineOutlinedIcon fontSize="large"/></span></Link>
         </HeaderContainer>
     )
 }
