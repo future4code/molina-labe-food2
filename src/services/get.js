@@ -61,23 +61,20 @@ export const getRestaurantDetail = (body, clear, history) => {
     // })
 }
 
-export const getActiveOrder = (body, clear, history) => {
-
-    const headers = {
+export const getActiveOrder = (setData) => {
+    axios.get(`${BASE_URL}/active-order`, {
         headers: {
             Authorization: localStorage.getItem('token')
         }
-    }
-    axios.get(`${BASE_URL}/active-order`, body, headers)
-        .then((res) => {
-            localStorage.setItem("token", res.data.token)
-            clear()
-        })
-        .catch((err) => {
-            console.log(err)
-            alert("Senha e/ou Email, incorreto!")
+    }) 
+    .then((res) => {
+        setData(res)
+    })
+    .catch((err) => {
+            console.log('ACTIVE ORDER ERROR', err.response)
         })
 }
+
 
 export const ordersHistory = (body, clear, history) => {
 

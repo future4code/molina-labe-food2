@@ -17,10 +17,11 @@ const EditPage = () => {
         history.push('/perfil')
     }
 
-    const onClickSubmit = (body) =>{
+    const onClickSubmit = (event) =>{
+        event.preventDefault()
         updateProfile(form)
     }
-
+    console.log(form)
     return (
         <div>
             <Header>

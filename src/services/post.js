@@ -1,6 +1,6 @@
 import axios from "axios"
 import { BASE_URL } from "../constants/url"
-import { goToHome } from "../router/cordinator"
+import { goToHome } from "../router/Coordinator"
 
 export const login = (body, clear, history) => {
 

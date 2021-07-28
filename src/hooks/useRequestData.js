@@ -18,7 +18,7 @@ const useRequestData = (initialData, url) => {
                 setData(res.data)
             })
             .catch((err) => {
-                console.log(err)
+                console.log(err.response)
                 alert('Ocorreu um erro!')
             })
     }
