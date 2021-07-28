@@ -8,7 +8,7 @@ export const addAdress = (body, clear, history) => {
 
    const headers = {
         headers:{
-            Authorization: localStorage.getItem('token')
+            auth: localStorage.getItem('token')
         }
     }
 
@@ -20,8 +20,8 @@ export const addAdress = (body, clear, history) => {
         console.log('ADD ADRESS', res)
     })
     .catch((err) => {
-        console.log(err)
-        alert("Senha e/ou Email, incorreto!")
+        console.log(err.response)
+        /* alert("Senha e/ou Email, incorreto!") */
     })
 }
 
@@ -30,7 +30,7 @@ export const updateProfile = (body, clear, history) => {
 
    const headers = {
         headers:{
-            Authorization: localStorage.getItem('token')
+            auth: localStorage.getItem('token')
         }
     }
 
@@ -42,7 +42,7 @@ export const updateProfile = (body, clear, history) => {
         /* goToFeedPage(history) */
     })
     .catch((err) => {
-        console.log(err)
-        alert("Senha e/ou Email, incorreto!")
+        console.log(err.response)
+        /* alert("Senha e/ou Email, incorreto!") */
     })
 }

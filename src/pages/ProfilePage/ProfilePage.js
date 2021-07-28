@@ -3,6 +3,7 @@ import CardHistory from '../../components/cards/CardHistory/CardHistory'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
 import { useHistory } from 'react-router'
 import useRequestData from '../../hooks/useRequestData'
+import {BASE_URL} from '../../constants/url'
 
 
 const ProfilePage = () => {

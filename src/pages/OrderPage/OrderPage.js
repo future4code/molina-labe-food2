@@ -1,7 +1,7 @@
 import React from 'react'
 import CardProducts from '../../components/cards/CardProducts/CardProducts'
 import { MainContainer, HeaderContainer } from '../CartPage/styles'
-import { goToHome } from '../../router/cordinator'
+import { goToHome } from '../../router/Coordinator'
 import { useHistory } from 'react-router'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 import { IconContainer } from './styled'
