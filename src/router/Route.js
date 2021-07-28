@@ -9,6 +9,7 @@ import EditPage from '../pages/EditPage/EditPage'
 import OrderPage from '../pages/OrderPage/OrderPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
 
+
 const Router = () => {
     return (
         <BrowserRouter>
@@ -47,6 +48,7 @@ const Router = () => {
 
                 <Route>
                     <div>Pagina não encontrada!</div>
+                    
                 </Route>
             </Switch>
         </BrowserRouter>
