@@ -23,6 +23,10 @@ export const Header = styled.div`
 export const StyledBack = styled.span`
    font-size: 40px;
    margin-top: 13px;
+
+   :hover{
+     cursor: pointer;
+   }
 `
 
 export const Form = styled.form`
