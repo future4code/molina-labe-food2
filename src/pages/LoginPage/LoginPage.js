@@ -13,10 +13,11 @@ import useForm from '../../hooks/useForm'
 import { Link, useHistory } from "react-router-dom";
 import { login } from "../../services/post";
 import {MainContainer, ImgContainer} from './style'
+import { useUnprotectedPage } from "../../hooks/useUnProtectedPage";
 
 
 const LoginPage = () => {
-    useUnprotectedPage()
+    // useUnprotectedPage()
     const {form, setForm, onChange, cleanFields} = useForm({
         email: '',
         password: '',
