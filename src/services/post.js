@@ -4,7 +4,13 @@ import { goToHome } from "../router/cordinator"
 
 export const login = (body, clear, history) => {
 
-    axios.post(`${BASE_URL}/login`, body)
+    const headers = {
+        headers: {
+            Authorization: token
+        }
+    }
+
+    axios.post(`${BASE_URL}/login`, body, headers)
     .then((res) => {
         localStorage.setItem("token", res.data.token)
         clear()
@@ -18,7 +24,13 @@ export const login = (body, clear, history) => {
 
 export const signup = (body, clear, history) => {
 
-    axios.post(`${BASE_URL}/signup`, body)
+    const headers = {
+        headers: {
+            Authorization: token
+        }
+    }
+
+    axios.post(`${BASE_URL}/signup`, body, headers)
     .then((res) => {
         localStorage.setItem("token", res.data.token)
         clear()
