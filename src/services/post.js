@@ -23,22 +23,15 @@ export const login = (body, clear, history) => {
 }
 
 export const signup = (body, clear, history) => {
-
-    const headers = {
-        headers: {
-            Authorization: localStorage.getItem('token')
-        }
-    }
-
-    axios.post(`${BASE_URL}/signup`, body, headers)
+    axios.post(`${BASE_URL}/signup`, body)
     .then((res) => {
         localStorage.setItem("token", res.data.token)
         clear()
-        // goToFeedPage(history)
+        goToHome(history)
     })
     .catch((err) => {
         console.log(err)
-        alert("Senha e/ou Email, incorreto!")
+        alert("Algo de errado aconteceu!")
     })
 }
 
