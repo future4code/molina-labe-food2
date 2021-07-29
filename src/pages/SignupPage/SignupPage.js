@@ -14,6 +14,7 @@ import { FormControl, OutlinedInput } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { signup } from "../../services/post";
 import useForm from '../../hooks/useForm'
+import {useUnprotectedPage} from '../../hooks/useUnProtectedPage'
 
 const SignupPage = () => {
     useUnprotectedPage()
