@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import search from '../../assets/search.svg'
+import React from 'react'
+import useRequestData from '../../hooks/useRequestData'
+import { BASE_URL } from '../../constants/url'
 import CardRestaurant from '../../components/cards/CardRestaurants/CardRestaurant'
+import search from '../../assets/search.svg'
 import Header from '../../components/header/Header'
-import { getRestaurants } from '../../services/get'
 
 import { Container } from './styles'
 
 const HomePage = () => {
-    const [restaurants, setRestaurants] = useState()
-
-    useEffect(() => {
-        getRestaurants(setRestaurants)
-    }, [])
+    const data = useRequestData([], `${BASE_URL}/restaurants`)
+    const restaurants = data && data.restaurants
+    console.log(restaurants)
 
     return (
         <>
