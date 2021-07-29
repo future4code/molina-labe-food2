@@ -76,21 +76,21 @@ export const getActiveOrder = (setData) => {
 }
 
 
-export const ordersHistory = (body, clear, history) => {
+export const ordersHistory = ( clear, setData) => {
 
     const headers = {
         headers: {
-            Authorization: localStorage.getItem('token')
+            auth: localStorage.getItem('token')
         }
     }
-    axios.get(`${BASE_URL}/orders/history`, body, headers)
+    axios.get(`${BASE_URL}/orders/history`, headers)
         .then((res) => {
-            localStorage.setItem("token", res.data.token)
+            setData(res.data.orders)
             clear()
         })
         .catch((err) => {
             console.log(err)
-            alert("Senha e/ou Email, incorreto!")
+            // alert("Senha e/ou Email, incorreto!")
         })
 }
 

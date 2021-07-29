@@ -13,7 +13,7 @@ export const goToSignUpAddress = (history) => {
 export const goToCart = (history) => {
     history.push('/carrinho')
 }
-export const goToEdit = (history) => {
+export const goToEddit = (history) => {
     history.push('/editar')
 }
 export const goToOrder = (history) => {
