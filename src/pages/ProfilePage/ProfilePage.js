@@ -64,7 +64,7 @@ const ProfilePage = () => {
                         <p>Registered Address</p>
                         <AddressData>
                             <p>{profile.user.address}</p>
-                            <Link to="/"><span><CreateOutlinedIcon onClick={profile.user.onClick} /></span></Link>
+                            <Link to="/editar-endereco"><span><CreateOutlinedIcon onClick={profile.user.onClick} /></span></Link>
                         </AddressData>
                     </AddressContainer>
 
