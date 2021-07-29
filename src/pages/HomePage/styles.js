@@ -38,6 +38,7 @@ export const Container = styled.div`
 
   .menu {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     height: 42px;
     gap: 8px;

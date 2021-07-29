@@ -2,38 +2,46 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
   width: 90vw;
   align-items: center;
+  margin-top: 50px;
 
   .image {
+    width: 97px;
+    height: 112px;
+    overflow: hidden;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+
     img {
-      width: 100%;
+      height: 100%;
     }
   }
 
-  .text {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    margin-top: -4px;
-    width: 94%;
-    gap: 4px;
-    border: solid 1px #b8b8b8;
+  .main {
+    border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border-bottom: solid 1px #b8b8b8;
+    border-top: solid 1px #b8b8b8;
+    border-right: solid 1px #b8b8b8;
 
-    h4 {
-      color: #e86e5a;
-      font-size: 16px;
-      font-weight: normal;
-    }
-
-    > div {
+    .text {
       display: flex;
-      font-size: 16px;
-      color: #b8b8b8;
-      justify-content: space-between;
+      flex-direction: column;
+      padding: 10px;
+      width: 93.5%;
+      gap: 4px;
+  
+      h4 {
+        color: #e86e5a;
+        font-size: 16px;
+        font-weight: normal;
+      }
+
+      p:nth-child(1) {
+        font-size: 14px;
+        color: var(--grey-color)
+      }
     }
   }
 `
