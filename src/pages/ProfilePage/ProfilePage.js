@@ -8,8 +8,8 @@ import useRequestData from '../../hooks/useRequestData'
 const ProfilePage = () => {
     useProtectedPage()
     const history = useHistory()
-    const profile = useRequestData({}, `${BASE_URL}/perfil`)
-    const order = useRequestData({}, `${BASE_URL}/pedido`)
+    const profile = useRequestData([], `${BASE_URL}/perfil`)
+    const order = useRequestData([], `${BASE_URL}/pedido`)
 
 
     return (
