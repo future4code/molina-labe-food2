@@ -43,6 +43,7 @@ const Router = () => {
                     <UpdateAdressPage/>
                 </Route>
 
+
                 <Route exact path={'/restaurante/:restauranteId'}>
                     <OrderPage/>
                 </Route>
