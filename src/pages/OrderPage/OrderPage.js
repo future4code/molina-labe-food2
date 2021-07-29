@@ -1,6 +1,5 @@
 import React from 'react'
 import CardProducts from '../../components/cards/CardProducts/CardProducts'
-import { MainContainer, HeaderContainer } from '../CartPage/styles'
 import { goToHome } from '../../router/Coordinator'
 import { useHistory } from 'react-router'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
@@ -10,25 +9,15 @@ import { placeOrder } from '../../services/post'
 import { BASE_URL } from '../../constants/url'
 import useRequestData from '../../hooks/useRequestData'
 import { useParams } from 'react-router'
+import { MainContainer, HeaderContainer } from './styled'
 
 const OrderPage = () => {
     const params = useParams()
     const history = useHistory()
-    const products = useRequestData([], `${BASE_URL}/restaurants/${params.id}`)
-
-
-    // const listProducts = products.filter((products) => {
-    //     return products.id === params.id
-    // }).map((products) => {
-    //     return (
-    //         <p>{products.category}</p>
-    //     )
-    // })
-
-    console.log(products)
+    const data = useRequestData([], `${BASE_URL}/restaurants/${params.restauranteId}`)
+    const products = data && data.restaurant && data.restaurant.products
 
     return (
-
         <MainContainer>
             <HeaderContainer>
                 <IconContainer>
@@ -36,10 +25,7 @@ const OrderPage = () => {
                     <p>Restaurantes</p>
                 </IconContainer>
             </HeaderContainer>
-            <form>
-                {/* <CardProducts /> */}
-                {/* {listProducts} */}
-            </form>
+            {products && products.map((product, index) => <CardProducts product={product} key={index} />)}
         </MainContainer>
     )
 }

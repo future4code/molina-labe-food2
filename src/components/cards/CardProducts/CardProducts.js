@@ -1,19 +1,19 @@
 import React from 'react'
-import image from '../../../assets/lanche/image@3x.png'
 
 import { Container } from './styles'
 
-const CardProducts = () => {
+const CardProducts = ({product}) => {
+    const image = product && product.photoUrl
     return (
         <Container>
             <div className='image'>
-                <img src={image} alt="restaurante" />
+                <img src={product && product.photoUrl} alt="lanche" />
             </div>
             <div className='main'>
                 <div className='text'>
-                    <h4>Bullguer</h4>
-                    <p>Pão, carne. queijo, picles e molho.</p>
-                    <p>R$23,00</p>
+                    <h4>{product && product.name} </h4>
+                    <p className='description'>{product && product.description} </p>
+                    <p>R${product && product.price}</p>
                 </div>
                 <div className='button'>
                     <span>2</span>

@@ -31,6 +31,7 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     --orange-color: #e86e5a;
     --grey-color: #b8b8b8;
+    --red-color: #e02020;
   }
 
   li {

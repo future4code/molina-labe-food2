@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { token } from "../constants/url"
 
 const useRequestData = (initialData, url) => {
     const [data, setData] = useState(initialData)
@@ -11,7 +12,7 @@ const useRequestData = (initialData, url) => {
     const getRequest = () => {
         axios.get(url, {
             headers: {
-                auth: localStorage.getItem('token')
+                auth: token
             }
         })
             .then((res) => {
