@@ -14,18 +14,22 @@ import { useParams } from 'react-router'
 const OrderPage = () => {
     const params = useParams()
     const history = useHistory()
-    const products = useRequestData([], `${BASE_URL}/restaurants/${params.id}`)
+    const products = useRequestData(undefined, `${BASE_URL}/restaurants/${params.restauranteId}`)
 
+    const listProducts = products && products.restaurant.products.map((food) => {
+        return ( 
+            <div>
+                <p>{food.price}</p>
+                <p>{food.name}</p>
+            </div>
+   
+        )
+    })
 
-    // const listProducts = products.filter((products) => {
-    //     return products.id === params.id
-    // }).map((products) => {
-    //     return (
-    //         <p>{products.category}</p>
-    //     )
-    // })
+    console.log("Lista Renderizada", listProducts)
+    console.log("Const product", products)
 
-    console.log(products)
+    
 
     return (
 
@@ -36,10 +40,8 @@ const OrderPage = () => {
                     <p>Restaurantes</p>
                 </IconContainer>
             </HeaderContainer>
-            <form>
-                {/* <CardProducts /> */}
-                {/* {listProducts} */}
-            </form>
+            {products && <p>{products.restaurant.name}</p>}
+            {listProducts}
         </MainContainer>
     )
 }

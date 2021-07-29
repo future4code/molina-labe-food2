@@ -8,7 +8,7 @@ const CardRestaurant = (props) => {
     const restaurantId = restaurant && restaurant.id
     
     return (
-        <Link to={`restaurantes/${restaurantId}`}>
+        <Link to={`restaurante/${restaurantId}`}>
             <Container>
                 <div className='image'>
                     <img src={restaurant && restaurant.logoUrl} alt="restaurante" />
