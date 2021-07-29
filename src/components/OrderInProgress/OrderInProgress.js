@@ -8,8 +8,6 @@ const OrderInProgress = () => {
     const order = useRequestData([], `${BASE_URL}/active-order`)
 
     let currentOrder = order.order
-    console.log('ORDER', currentOrder)
-
 
     return <OrderCard>
         <IconDiv>
