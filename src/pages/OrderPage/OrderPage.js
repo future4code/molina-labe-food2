@@ -1,9 +1,10 @@
 import React from 'react'
+import CardProducts from '../../components/cards/CardProducts/CardProducts'
 
 const OrderPage = () => {
     return (
         <div>
-            OrderPage
+            <CardProducts />
         </div>
     )
 }

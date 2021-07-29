@@ -38,7 +38,7 @@ const Router = () => {
                     <EditPage/>
                 </Route>
 
-                <Route exact path={'/pedido'}>
+                <Route exact path={'/restaurante/:restauranteId'}>
                     <OrderPage/>
                 </Route>
 
