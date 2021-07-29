@@ -48,7 +48,7 @@ export const getRestaurants = (setData) => {
         })
 }
 
-export const getRestaurantDetail = (body, clear, history) => {
+export const getRestaurantDetail = (setData) => {
     // axios.get(`${BASE_URL}/restaurants/${restaurantId}`, body)
     // .then((res) => {
     //     localStorage.setItem("token", res.data.token)
