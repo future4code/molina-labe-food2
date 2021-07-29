@@ -5,21 +5,22 @@ const useRequestData = (initialData, url) => {
     const [data, setData] = useState(initialData)
 
     useEffect(() => {
-        getPost()
-    })
+        getRequest()
+    }, [])
 
-    const getPost = () => {
+    const getRequest = () => {
         axios.get(url, {
             headers: {
-                Authorization: localStorage.getItem('token')
+                auth: localStorage.getItem('token')
             }
         })
             .then((res) => {
                 setData(res.data)
             })
             .catch((err) => {
-                console.log(err)
+                console.log(err.response)
                 alert('Ocorreu um erro!')
+
             })
     }
 

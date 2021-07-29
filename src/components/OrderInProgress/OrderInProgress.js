@@ -1,20 +1,34 @@
 import React from 'react'
-import { OrderCard, IconDiv, InfoDiv, Icone } from './styled'
+import { OrderCard, IconDiv, InfoDiv, Icone, DescriptionDiv } from './styled'
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import useRequestData from '../../hooks/useRequestData'
+import { BASE_URL } from '../../constants/url'
 
-const OrderInProgress = (props) => {
-    return (
-        <OrderCard>
-            <IconDiv>
-                <Icone> <AccessTimeIcon fontSize='large' /> </Icone>
-            </IconDiv>
-            <InfoDiv>
+const OrderInProgress = () => {
+    const order = useRequestData([], `${BASE_URL}/active-order`)
+
+    let currentOrder = order.order
+    console.log('ORDER', currentOrder)
+
+
+    return <OrderCard>
+        <IconDiv>
+            <Icone> <AccessTimeIcon fontSize='large' /> </Icone>
+        </IconDiv>
+        {currentOrder && <InfoDiv>
+            <DescriptionDiv>
                 <p>Pedido em andamento</p>
-                <h5>{props.restaurantName}</h5>
-                <h5>SUBTOTAL R${props.totalPrice},00</h5>
-            </InfoDiv>
-        </OrderCard>
-    )
+            </DescriptionDiv>
+            <DescriptionDiv>
+                <h4>{currentOrder.restaurantName}</h4>
+            </DescriptionDiv>
+            <DescriptionDiv>
+                <h5>SUBTOTAL R${currentOrder.totalPrice},00</h5>
+            </DescriptionDiv>
+        </InfoDiv>}
+    </OrderCard>
+
 }
 
 export default OrderInProgress
+
