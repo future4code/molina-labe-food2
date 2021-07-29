@@ -6,6 +6,7 @@ import SignupPage from '../pages/SignupPage/SignupPage'
 import SignupAddressPage from '../pages/SignupAddressPage/SignupAddressPage'
 import CartPage from '../pages/CartPage/CartPage'
 import UpdateProfilePage from '../pages/UpdateProfilePage/UpdateProfilePage'
+import UpdateAdressPage from '../pages/UpdateAdressPage/UpdateAdressPage'
 import OrderPage from '../pages/OrderPage/OrderPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
 
@@ -38,7 +39,12 @@ const Router = () => {
                     <UpdateProfilePage/>
                 </Route>
 
-                <Route exact path={'/pedido'}>
+                <Route exact path={'/editar-endereco'}>
+                    <UpdateAdressPage/>
+                </Route>
+
+
+                <Route exact path={'/restaurante/:restauranteId'}>
                     <OrderPage/>
                 </Route>
 
