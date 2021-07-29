@@ -7,18 +7,25 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 import { IconContainer } from './styled'
 import useForm from '../../hooks/useForm'
 import { placeOrder } from '../../services/post'
+import { BASE_URL } from '../../constants/url'
+import useRequestData from '../../hooks/useRequestData'
+import { useParams } from 'react-router'
 
 const OrderPage = () => {
+    const params = useParams()
     const history = useHistory()
-    // const [form, onChange, clear] = useForm({products: [{id: "", quantity: ""}], paymentMethod: ""})
-
-    // const onSubmitForm = (event) => {
-    //     event.preventDefault()
-    //     placeOrder(form, clear)
-    //     console.log(form)
-    // }
+    const products = useRequestData([], `${BASE_URL}/restaurants/${params.id}`)
 
 
+    // const listProducts = products.filter((products) => {
+    //     return products.id === params.id
+    // }).map((products) => {
+    //     return (
+    //         <p>{products.category}</p>
+    //     )
+    // })
+
+    console.log(products)
 
     return (
         <MainContainer>
@@ -29,7 +36,8 @@ const OrderPage = () => {
                 </IconContainer>
             </HeaderContainer>
             <form>
-                <CardProducts />
+                {/* <CardProducts /> */}
+                {/* {listProducts} */}
             </form>
         </MainContainer>
     )
