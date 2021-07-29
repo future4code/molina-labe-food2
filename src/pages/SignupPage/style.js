@@ -17,7 +17,7 @@ const MainContainer = styled.div`
 `;
 
 const ImgContainer = styled.div`
-  margin: 88px 0 28px 0;
+  margin: 54px 0 28px 0;
   max-width: 100%;
   width: 104px;
   height: 58px;
