@@ -6,7 +6,7 @@ const useRequestData = (initialData, url) => {
 
     useEffect(() => {
         getRequest()
-    })
+    }, [])
 
     const getRequest = () => {
         axios.get(url, {
