@@ -1,6 +1,7 @@
 import { responsiveFontSizes } from "@material-ui/core"
 import axios from "axios"
 import { BASE_URL } from "../constants/url"
+import { goToHome } from "../router/Coordinator"
 /* import { goToFeedPage } from "../router/Coordinator" */
 
 export const addAdress = (body, clear, history) => {
@@ -14,14 +15,12 @@ export const addAdress = (body, clear, history) => {
 
     axios.put(`${BASE_URL}/address`, body, headers)
     .then((res) => {
-        localStorage.setItem("token", res.data.token)
         clear()
-        /* goToFeedPage(history) */
+        goToHome(history)
         console.log('ADD ADRESS', res)
     })
     .catch((err) => {
         console.log(err.response)
-        /* alert("Senha e/ou Email, incorreto!") */
     })
 }
 
