@@ -1,26 +1,26 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import image from '../../../assets/lanche/image@3x.png'
 
 import { Container } from './styles'
 
-const CardProducts = (props) => {
-    const restaurant = props.restaurants
-    
+const CardProducts = () => {
     return (
-        <Link to=''>
-            <Container>
-                <div className='image'>
-                    <img src={restaurant && restaurant.logoUrl} alt="restaurante" />
-                </div>
+        <Container>
+            <div className='image'>
+                <img src={image} alt="restaurante" />
+            </div>
+            <div className='main'>
                 <div className='text'>
-                    <h4>{restaurant && restaurant.name}</h4>
-                    <div>
-                        <p>{restaurant && restaurant.deliveryTime - 10} - {restaurant && restaurant.deliveryTime} min</p>
-                        <p>Frete R${restaurant && restaurant.shipping},00</p>
-                    </div>
+                    <h4>Bullguer</h4>
+                    <p>Pão, carne. queijo, picles e molho.</p>
+                    <p>R$23,00</p>
                 </div>
-            </Container>
-        </Link>
+                <div className='button'>
+                    <span>2</span>
+                    <button>remover</button>
+                </div>
+            </div>
+        </Container>
     )
 }
 
