@@ -4,22 +4,23 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { BiChevronLeft } from 'react-icons/bi'
 import { updateProfile } from '../../services/put'
-import { /* Container, */ Header, StyledBack, Form, InputsContainer, IconDiv } from './styled'
+import { Header, StyledBack, Form, InputsContainer, IconDiv } from './styled'
 import { useHistory } from 'react-router-dom'
 import OrderInProgress from '../../components/OrderInProgress/OrderInProgress';
 
 const EditPage = () => {
 
     const history = useHistory()
-    const { form, onChange } = useForm({ name: "", email: "", cpf: "" })
+    const { form, onChange, cleanFields } = useForm({ name: "", email: "", cpf: "" })
 
     const goBackProfile = () => {
         history.push('/perfil')
     }
 
-    const onClickSubmit = (event) =>{
+    const onClickSubmit = (event) => {
         event.preventDefault()
         updateProfile(form)
+        cleanFields()
     }
     console.log(form)
     return (

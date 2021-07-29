@@ -15,13 +15,13 @@ const ProfilePage = () => {
 
     return (
         <CardHistory
-        key={profile.user.id}
-        name={profile.user.name}
-        email={profile.user.email}
-        cpf={profile.user.cpf}
-        onClick={() => goToEdit(history)}
+            key={profile.user.id}
+            name={profile.user.name}
+            email={profile.user.email}
+            cpf={profile.user.cpf}
+            onClick={() => goToEdit(history)}
         />
-        
+
     )
 }
 
