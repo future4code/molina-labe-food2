@@ -19,8 +19,12 @@ const OrderPage = () => {
     const listProducts = products && products.restaurant.products.map((food) => {
         return ( 
             <div>
-                <p>{food.price}</p>
-                <p>{food.name}</p>
+                <CardProducts
+                    name={food.name}
+                    price={food.price}
+                    ingred={food.price}
+                    image={food.photoUrl}
+                />
             </div>
    
         )
@@ -32,7 +36,6 @@ const OrderPage = () => {
     
 
     return (
-
         <MainContainer>
             <HeaderContainer>
                 <IconContainer>
