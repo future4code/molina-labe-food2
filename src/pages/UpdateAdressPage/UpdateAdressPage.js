@@ -3,15 +3,15 @@ import useForm from '../../hooks/useForm'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { addAdress } from '../../services/put'
-import { Header, StyledBack, Form, InputsContainer, IconDiv } from './styled'
-import { useHistory } from 'react-router-dom'
+import { Header, Form, InputsContainer, IconDiv } from './styled'
 import OrderInProgress from '../../components/OrderInProgress/OrderInProgress';
 import ButtonBack from '../../components/ButtonBack/ButtonBack'
-
+import { useProtectedPage } from '../../hooks/useProtectedPage'
 
 const UpdateAdressPage = () => {
 
-    const history = useHistory()
+    useProtectedPage()
+
     const { form, onChange, cleanFields } = useForm({
         neighbourhood: "",
         city: "",
