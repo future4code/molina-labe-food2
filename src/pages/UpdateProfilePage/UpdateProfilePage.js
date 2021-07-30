@@ -9,7 +9,9 @@ import ButtonBack from '../../components/ButtonBack/ButtonBack'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
 
 const EditPage = () => {
+   
     useProtectedPage()
+    
     const { form, onChange, cleanFields } = useForm({ name: "", email: "", cpf: "" })
 
     const onClickSubmit = (event) => {
@@ -86,8 +88,6 @@ const EditPage = () => {
 
             <OrderInProgress />
         </div>
-
-
     )
 }
 
