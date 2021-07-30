@@ -1,6 +1,5 @@
 import React from 'react'
 import CardProducts from '../../components/cards/CardProducts/CardProducts'
-import { MainContainer, HeaderContainer } from '../CartPage/styles'
 import { goToHome } from '../../router/Coordinator'
 import { useHistory } from 'react-router'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
@@ -10,10 +9,12 @@ import { placeOrder } from '../../services/post'
 import { BASE_URL } from '../../constants/url'
 import useRequestData from '../../hooks/useRequestData'
 import { useParams } from 'react-router'
+import { MainContainer, HeaderContainer } from './styled'
 
 const OrderPage = () => {
     const params = useParams()
     const history = useHistory()
+
     const products = useRequestData(undefined, `${BASE_URL}/restaurants/${params.restauranteId}`)
 
     const listProducts = products && products.restaurant.products.map((food) => {
@@ -33,8 +34,6 @@ const OrderPage = () => {
     console.log("Lista Renderizada", listProducts)
     console.log("Const product", products)
 
-    
-
     return (
         <MainContainer>
             <HeaderContainer>
@@ -43,8 +42,7 @@ const OrderPage = () => {
                     <p>Restaurantes</p>
                 </IconContainer>
             </HeaderContainer>
-            {products && <p>{products.restaurant.name}</p>}
-            {listProducts}
+
         </MainContainer>
     )
 }

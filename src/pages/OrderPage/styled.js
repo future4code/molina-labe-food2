@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 8px;
 `
 
 export const HeaderContainer = styled.div`
@@ -11,6 +13,7 @@ export const HeaderContainer = styled.div`
     border-bottom: 1px solid black;
     align-items: center;
     height: 6.5vh;
+    width: 100%;
 `
 
 export const IconContainer = styled.div`

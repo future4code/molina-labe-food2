@@ -1,6 +1,4 @@
 import React from 'react'
-import image from '../../../assets/lanche/image@3x.png'
-
 import { Container } from './styles'
 
 const CardProducts = (props) => {
@@ -14,6 +12,7 @@ const CardProducts = (props) => {
                     <h4>{props.name}</h4>
                     <p>{props.ingred}</p>
                     <p>R${props.price}</p>
+
                 </div>
                 <div className='button'>
                     <span>2</span>
