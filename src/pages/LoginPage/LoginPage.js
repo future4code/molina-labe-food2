@@ -13,10 +13,21 @@ import { Link, useHistory } from "react-router-dom";
 import { login } from "../../services/post";
 import {MainContainer, ImgContainer} from './style'
 import { useUnprotectedPage } from "../../hooks/useUnProtectedPage";
+import { makeStyles } from '@material-ui/core/styles'
 
+const useStyles = makeStyles({
+    field:{
+        marginBottom: 16,
+    },
+    btn:{
+        marginBottom: 28,
+        padding: '12px 0' 
+    }
+});
 
 const LoginPage = () => {
     useUnprotectedPage()
+    const classes = useStyles()
     const {form, setForm, onChange, cleanFields} = useForm({
         email: '',
         password: '',
@@ -54,6 +65,7 @@ const LoginPage = () => {
             <Container component="main" maxWidth="xs">
                 <form onSubmit={onSubmitForm}>
                     <TextField
+                        className={classes.field}
                         fullWidth
                         margin='normal'
                         id="outlined-read-only-input"
@@ -66,7 +78,7 @@ const LoginPage = () => {
                         required
                     />
 
-                    <FormControl fullWidth variant="outlined">   
+                    <FormControl fullWidth variant="outlined" className={classes.field}>   
                         <InputLabel htmlFor="outlined-adornment-password">Senha</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-password"
@@ -94,16 +106,18 @@ const LoginPage = () => {
                         variant='contained'
                         color='primary' 
                         fullWidth
-                        size="medium"
+                        size="large"
                         type='submit'
+                        className={classes.btn}
                     >
                         Entrar
                     </Button>
                 </form>
-
+                        
                 <Link to={'/cadastrar'}>
                     <Button 
                         color="primary"
+                        className={classes.btn2}
                     >
                         Não possui cadastro? Clique aqui.
                     </Button>

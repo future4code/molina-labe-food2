@@ -13,6 +13,8 @@ const MainContainer = styled.div`
   
     a{
         text-decoration: none;
+        display: flex;
+        justify-content: center;
     }
 
 `
