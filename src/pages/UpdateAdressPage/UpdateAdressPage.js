@@ -2,11 +2,12 @@ import React from 'react'
 import useForm from '../../hooks/useForm'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { BiChevronLeft } from 'react-icons/bi'
 import { addAdress } from '../../services/put'
 import { Header, StyledBack, Form, InputsContainer, IconDiv } from './styled'
 import { useHistory } from 'react-router-dom'
 import OrderInProgress from '../../components/OrderInProgress/OrderInProgress';
+import ButtonBack from '../../components/ButtonBack/ButtonBack'
+
 
 const UpdateAdressPage = () => {
 
@@ -20,9 +21,6 @@ const UpdateAdressPage = () => {
         complement: ""
     })
 
-    const goBackProfile = () => {
-        history.push('/perfil')
-    }
 
     const onClickSubmit = (event) => {
         event.preventDefault()
@@ -34,7 +32,8 @@ const UpdateAdressPage = () => {
         <div>
             <Header>
                 <IconDiv>
-                    <StyledBack> <BiChevronLeft onClick={goBackProfile} /> </StyledBack>
+                    <ButtonBack value={'22px'} />
+
 
                     <h2>Editar</h2>
                 </IconDiv>
