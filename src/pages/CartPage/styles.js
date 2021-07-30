@@ -30,6 +30,7 @@ export const HeaderContainer = styled.div`
 export const ItensContainer = styled.div`
     display: flex;
     justify-content: center;
+    margin: 4px;
 `
 
 export const ShippingContainer = styled.div`

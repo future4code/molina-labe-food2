@@ -4,17 +4,14 @@ import { goToHome } from '../../router/Coordinator'
 import { useHistory } from 'react-router'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 import { IconContainer } from './styled'
-import useForm from '../../hooks/useForm'
-import { placeOrder } from '../../services/post'
 import { BASE_URL } from '../../constants/url'
 import useRequestData from '../../hooks/useRequestData'
 import { useParams } from 'react-router'
-import { MainContainer, HeaderContainer } from './styled'
+import { MainContainer, HeaderContainer, Container } from './styled'
 
 const OrderPage = () => {
     const params = useParams()
     const history = useHistory()
-
     const products = useRequestData(undefined, `${BASE_URL}/restaurants/${params.restauranteId}`)
 
     const listProducts = products && products.restaurant.products.map((food) => {
@@ -25,9 +22,10 @@ const OrderPage = () => {
                     price={food.price}
                     ingred={food.price}
                     image={food.photoUrl}
+                    id={food.id}
+                    quantytite={food.quantity}
                 />
             </div>
-   
         )
     })
 
@@ -42,7 +40,21 @@ const OrderPage = () => {
                     <p>Restaurantes</p>
                 </IconContainer>
             </HeaderContainer>
-
+            <Container>
+                <div className='image'>
+                    <img src={products && products.restaurant.logoUrl} alt="restaurante" />
+                </div>
+                <div className='text'>
+                    <h4>{products && products.restaurant.name}</h4>
+                    <p>{products && products.restaurant.category}</p>
+                    <div>
+                        <p>{products && products.restaurant.deliveryTime - 10} - {products && products.restaurant.deliveryTime}min</p>
+                        <p>Frete R${products && products.restaurant.shipping},00</p>
+                    </div>
+                <p>{products && products.restaurant.address}</p>
+                </div>
+            </Container>
+            {listProducts}
         </MainContainer>
     )
 }
