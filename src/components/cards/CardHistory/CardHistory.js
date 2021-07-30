@@ -1,7 +1,7 @@
 import React from 'react'
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import { Link } from 'react-router-dom'
-import { GeneralContainer, NameContainer, AddressContainer, AddressData, HistoryTitle, HistoryContainer } from "./Style"
+import { GeneralContainer, HistoryContainer, RestaurantCardName, DateCard, SubPrice } from "./Style"
 
 const CardHistory = (props) => {
 
@@ -9,9 +9,9 @@ const CardHistory = (props) => {
         <GeneralContainer>
             
             <HistoryContainer>
-                <p>{props.restaurantName}</p>
-                <p>date</p>
-                <p>{props.totalPrice}</p>
+                <RestaurantCardName>{props.restaurantName}</RestaurantCardName>
+                <DateCard >{props.createdAt}</DateCard>
+                <SubPrice>SUBTOTAL R${props.totalPrice},00</SubPrice>
             </HistoryContainer>
 
         </GeneralContainer>
