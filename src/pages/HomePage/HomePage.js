@@ -4,10 +4,11 @@ import { BASE_URL } from '../../constants/url'
 import CardRestaurant from '../../components/cards/CardRestaurants/CardRestaurant'
 import search from '../../assets/search.svg'
 import Header from '../../components/header/Header'
-
 import { Container } from './styles'
+import {useProtectedPage} from '../../hooks/useProtectedPage'
 
 const HomePage = () => {
+    useProtectedPage()
     const data = useRequestData([], `${BASE_URL}/restaurants`)
     const restaurants = data && data.restaurants
     console.log(restaurants)
