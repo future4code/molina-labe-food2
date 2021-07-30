@@ -11,6 +11,7 @@ import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { placeOrder } from '../../../services/post';
 
 const CardProducts = (props) => {
 
@@ -25,80 +26,93 @@ const CardProducts = (props) => {
         },
     }));
 
-    const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
-    const [age, setAge] = React.useState('');
+    const classes = useStyles()
+    const [open, setOpen] = React.useState(false)
+    const [quantity, setQuantity] = React.useState('')
 
     const handleChange = (event) => {
-        setAge(Number(event.target.value) || '');
-    };
+        setQuantity(Number(event.target.value) || '')
+    }
 
     const handleClickOpen = () => {
         setOpen(true);
-    };
+    }
 
     const handleClose = () => {
-        setOpen(false);
-    };
+        setOpen(false)
+        props.onClick()
+    }
 
-        return (
-            <Container>
-                <div className='image'>
-                    <img src={props.image} alt="restaurante" />
+
+    const onSubmitForm = (event) => {
+        event.preventDefault()
+
+        const body = {
+            products: [{
+                id: "",
+                quantity: 0
+            }],
+            paymentMethod: "",
+        }
+
+        placeOrder(body)
+    }
+
+    return (
+        <Container>
+            <div className='image'>
+                <img src={props.image} alt="restaurante" />
+            </div>
+            <div className='main'>
+                <div className='text'>
+                    <h4>{props.name}</h4>
+                    <p>{props.ingred}</p>
+                    <p>R${props.price}</p>
                 </div>
-                <div className='main'>
-                    <div className='text'>
-                        <h4>{props.name}</h4>
-                        <p>{props.ingred}</p>
-                        <p>R${props.price}</p>
-
-                    </div>
-                    <div className='button'>
-                        <span>
-                            <Button onClick={handleClickOpen}>{props.quantity}</Button>
-                            <Dialog open={open} onClose={handleClose}>
-                                <DialogTitle>Selecione a quantidade desejada:</DialogTitle>
-                                <DialogContent>
-                                    <form className={classes.container}>
-                                        <FormControl className={classes.formControl}>
-                                            {/* <InputLabel htmlFor="demo-dialog-native"></InputLabel> */}
-                                            <Select
-                                                native
-                                                id={props.id}
-                                                quantytite={props.quantity}
-                                                onChange={handleChange}
-                                                input={<Input id="demo-dialog-native"
-                                                 />}
-                                            >
-                                                <option aria-label="None" value=""/>
-                                                <option value={1}>1</option>
-                                                <option value={2}>2</option>
-                                                <option value={3}>3</option>
-                                                <option value={4}>4</option>
-                                                <option value={5}>5</option>
-                                                <option value={6}>6</option>
-                                                <option value={7}>7</option>
-                                                <option value={8}>8</option>
-                                                <option value={9}>9</option>
-                                                <option value={10}>10</option>
-
-                                            </Select>
-                                        </FormControl>
-                                    </form>
-                                </DialogContent>
-                                <DialogActions>
-                                    <Button onClick={handleClose} color="primary">
-                                        Adicionar ao carrinho
-                                    </Button>
-                                </DialogActions>
-                            </Dialog>
-                        </span>
-                        <button>{props.addButton}Adicionar</button>
-                    </div>
+                <div className='button'>
+                    <span>
+                        <Button>0</Button>
+                        <Dialog open={open} onClose={handleClose}>
+                            <DialogTitle>Selecione a quantidade desejada:</DialogTitle>
+                            <DialogContent>
+                                <form
+                                    onSubmit={onSubmitForm}
+                                    className={classes.container}>
+                                    <FormControl className={classes.formControl}>
+                                        <Select
+                                            native
+                                            id={props.id}
+                                            onChange={handleChange}
+                                            input={<Input id="demo-dialog-native"
+                                            />}
+                                            value={quantity}
+                                        >
+                                            <option aria-label="None" value="" />
+                                            <option value={1}>1</option>
+                                            <option value={2}>2</option>
+                                            <option value={3}>3</option>
+                                            <option value={4}>4</option>
+                                            <option value={5}>5</option>
+                                            <option value={6}>6</option>
+                                            <option value={7}>7</option>
+                                            <option value={8}>8</option>
+                                            <option value={9}>9</option>
+                                            <option value={10}>10</option>
+                                        </Select>
+                                        <Button  onClick={handleClose} color="primary">
+                                            Adicionar ao carrinho
+                                        </Button>
+                                    </FormControl>
+                                </form>
+                            </DialogContent>
+                        </Dialog>
+                    </span>
+                    <button onClick={handleClickOpen}>Adicionar</button>
                 </div>
-            </Container>
-        )
-    
+            </div>
+        </Container>
+    )
+
 }
 
 export default CardProducts

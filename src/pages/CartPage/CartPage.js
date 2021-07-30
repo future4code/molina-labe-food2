@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {
     ButtonContainer,
     HeaderContainer,
@@ -12,8 +12,10 @@ import {
 import Button from '@material-ui/core/Button';
 import useForm from '../../hooks/useForm';
 import { placeOrder } from '../../services/post';
+import { GlobalContext } from '../../global/GlobalContext';
 
 const CartPage = () => {
+    const global = useContext(GlobalContext)
     const { form, setForm, onChange, cleanFields } = useForm({
         products: [{
             id: "",
@@ -28,7 +30,7 @@ const CartPage = () => {
         cleanFields()
     }
 
-
+console.log(global)
 
 
 
