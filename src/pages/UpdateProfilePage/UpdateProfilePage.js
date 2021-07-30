@@ -81,6 +81,7 @@ const EditPage = () => {
                         variant="contained"
                         color="primary"
                         disableElevation
+                        size='large'
                         fullWidth
                     >Salvar</Button>
                 </InputsContainer>
