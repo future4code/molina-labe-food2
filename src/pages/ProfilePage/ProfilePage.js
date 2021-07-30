@@ -3,11 +3,9 @@ import CardHistory from '../../components/cards/CardHistory/CardHistory'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
 import { BASE_URL } from '../../constants/url'
-import { goToEddit } from '../../router/Coordinator'
 import { Link } from 'react-router-dom'
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
-import { NameContainer, AddressContainer, AddressData, HistoryTitle } from "./Style"
-import { ordersHistory } from '../../services/get'
+import { GeneralContainer, BarContainer, NameContainer, Email, Cpf, Address, AddressContainer, AddressData, HistoryTitle, Title } from "./Style"
 import axios from "axios"
 
 const ProfilePage = () => {
@@ -31,53 +29,58 @@ const ProfilePage = () => {
             
         })
     }
-    console.log(orders)
 
     useEffect (() => {
         getOrdersHistory()
     }, [])
 
     const ordersInfo = orders.map((orders) => {
+
+        const data = Date(orders.createdAt)
+
         return (
             <CardHistory
                 totalPrice={orders.totalPrice}
                 restaurantName={orders.restaurantName}
+                createdAt={data.slice(0,10)}
             />
         )
+        //const date = convertDate(order.createdAt)
     }) 
-    console.log(orders)
- 
-
 
     return (
-        <div>
-            {profile.user &&
-                <div>
-                    <NameContainer>
-                        <p>{profile.user.name}</p>
-                        <Link to="/editar"><span><CreateOutlinedIcon onClick={profile.user.onClick} /></span></Link>
-                    </NameContainer>
-                    <p>{profile.user.email}</p>
-                    <p>{profile.user.cpf}</p>
+        <GeneralContainer>
+            <BarContainer>
+                <Title>My Profile</Title>
+            </BarContainer>
+                {profile.user &&
+                    <div>
+                        <NameContainer>
+                            <p>{profile.user.name}</p>
+                            <Link to="/editar"><span><CreateOutlinedIcon onClick={profile.user.onClick} /></span></Link>
+                        </NameContainer>
 
-                    <AddressContainer>
-                        <p>Registered Address</p>
-                        <AddressData>
-                            <p>{profile.user.address}</p>
-                            <Link to="/editar-endereco"><span><CreateOutlinedIcon onClick={profile.user.onClick} /></span></Link>
-                        </AddressData>
-                    </AddressContainer>
+                        <Email >{profile.user.email}</Email>
+                        <Cpf>{profile.user.cpf}</Cpf>
+                        
+                        <AddressContainer>
+                            <Address>Registered Address</Address>
+                            <AddressData>
+                                <p>{profile.user.address}</p>
+                                <Link to="/cadastrar/endereco"><span><CreateOutlinedIcon onClick={profile.user.onClick} /></span></Link>
+                            </AddressData>
+                        </AddressContainer>
 
-                    <HistoryTitle>
-                        <h4>Order History</h4>
-                        <hr/>
-                    </HistoryTitle>
-                </div>
-            }
+                        <HistoryTitle>
+                            <p>Order History</p>
+                            <hr/>
+                        </HistoryTitle>
+                    </div>
+                }
 
-            {ordersInfo ? ordersInfo : <p>Carregando...</p>}
+                {ordersInfo ? ordersInfo : <p>Carregando...</p>}
 
-        </div>
+        </GeneralContainer>
 
     )
 }
