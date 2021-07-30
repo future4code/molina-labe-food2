@@ -78,7 +78,7 @@ const LoginPage = () => {
                         required
                     />
 
-                    <FormControl fullWidth variant="outlined" className={classes.field}>   
+                    <FormControl fullWidth variant="outlined" className={classes.field} required>   
                         <InputLabel htmlFor="outlined-adornment-password">Senha</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-password"
