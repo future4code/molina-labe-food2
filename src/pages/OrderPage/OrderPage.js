@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import CardProducts from '../../components/cards/CardProducts/CardProducts'
 import { goToHome } from '../../router/Coordinator'
 import { useHistory } from 'react-router'
@@ -8,8 +8,10 @@ import { BASE_URL } from '../../constants/url'
 import useRequestData from '../../hooks/useRequestData'
 import { useParams } from 'react-router'
 import { MainContainer, HeaderContainer, Container } from './styled'
+import { GlobalContext } from '../../global/GlobalContext'
 
 const OrderPage = () => {
+    const global = useContext(GlobalContext)
     const params = useParams()
     const history = useHistory()
     const products = useRequestData(undefined, `${BASE_URL}/restaurants/${params.restauranteId}`)
@@ -18,19 +20,28 @@ const OrderPage = () => {
         return ( 
             <div>
                 <CardProducts
+                    key={food.id}
                     name={food.name}
                     price={food.price}
                     ingred={food.price}
                     image={food.photoUrl}
                     id={food.id}
-                    quantytite={food.quantity}
+                    onClick={() => addProducts(food)}
                 />
             </div>
         )
     })
 
-    console.log("Lista Renderizada", listProducts)
-    console.log("Const product", products)
+    const addProducts = (foodItem) => {
+        const cart = [...global.cart, foodItem]
+        global.setCart(cart)
+        console.log("Food", foodItem)
+    }
+
+
+
+    // console.log("Lista Renderizada", listProducts)
+    // console.log("Const product", products)
 
     return (
         <MainContainer>
