@@ -42,7 +42,6 @@ export const placeOrder = (body, clear) => {
             Authorization: localStorage.getItem('token')
         }
     }
-
     axios.post(`${BASE_URL}/restaurants/:restaurantId/order`, body, headers)
         .then((res) => {
             localStorage.setItem("token", res.data.token)

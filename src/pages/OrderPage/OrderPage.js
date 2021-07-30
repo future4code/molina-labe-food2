@@ -22,13 +22,12 @@ const OrderPage = () => {
                     price={food.price}
                     ingred={food.price}
                     image={food.photoUrl}
+                    id={food.id}
+                    quantytite={food.quantity}
                 />
             </div>
         )
     })
-
-    
-
 
     console.log("Lista Renderizada", listProducts)
     console.log("Const product", products)
