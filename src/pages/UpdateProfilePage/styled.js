@@ -4,9 +4,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 95%;
-  border: solid 1px #b8b8b8;
-  border-radius: 8px;
   align-items: center;
+  margin-bottom: 2px;
   `
 
 export const Header = styled.div`
@@ -19,15 +18,6 @@ export const Header = styled.div`
   
  
   `
-
-export const StyledBack = styled.span`
-   font-size: 40px;
-   margin-top: 13px;
-
-   :hover{
-     cursor: pointer;
-   }
-`
 
 export const Form = styled.form`
 margin: 5px;

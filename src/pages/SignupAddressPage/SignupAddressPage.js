@@ -39,7 +39,7 @@ const SignupAddressPage = () => {
 
     return (
         <MainContainer>
-            <ButtonBack/>  
+            <ButtonBack value={'30px'}/>  
 
             <p>Meu endereço</p>
             <Container>

@@ -3,12 +3,12 @@ import {ContainerIcon} from './style'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { useHistory } from 'react-router-dom';
 
-const ButtonBack = () => {
+const ButtonBack = ({value}) => {
     const history = useHistory()
 
     return (
-        <ContainerIcon onClick={()=>history.goBack()}>
-            <ArrowBackIosIcon/>
+        <ContainerIcon value={value} onClick={()=>history.goBack()}>
+            <ArrowBackIosIcon />
         </ContainerIcon>
 
     )
