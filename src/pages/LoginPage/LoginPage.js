@@ -1,14 +1,13 @@
 import React from "react";
 import logoFutureEatsInvert from "../../assets/logoFutureEatsInvert.svg";
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
 import IconButton from '@material-ui/core/IconButton';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import { FormControl, OutlinedInput } from "@material-ui/core";
+import { FormControl, OutlinedInput, TextField } from "@material-ui/core";
 import useForm from '../../hooks/useForm'
 import { Link, useHistory } from "react-router-dom";
 import { login } from "../../services/post";
@@ -17,7 +16,7 @@ import { useUnprotectedPage } from "../../hooks/useUnProtectedPage";
 
 
 const LoginPage = () => {
-    // useUnprotectedPage()
+    useUnprotectedPage()
     const {form, setForm, onChange, cleanFields} = useForm({
         email: '',
         password: '',
@@ -91,7 +90,7 @@ const LoginPage = () => {
                         />
                     </FormControl>
                     
-                    <Button 
+                    <Button
                         variant='contained'
                         color='primary' 
                         fullWidth
@@ -101,6 +100,7 @@ const LoginPage = () => {
                         Entrar
                     </Button>
                 </form>
+
                 <Link to={'/cadastrar'}>
                     <Button 
                         color="primary"
