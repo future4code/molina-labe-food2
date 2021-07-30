@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {MainContainer, ImgContainer} from './style'
 import logoFutureEatsInvert from "../../assets/logoFutureEatsInvert.svg";
 import Button from "@material-ui/core/Button";
@@ -15,6 +15,8 @@ import { useHistory } from "react-router-dom";
 import { signup } from "../../services/post";
 import useForm from '../../hooks/useForm'
 import { useUnprotectedPage } from '../../hooks/useUnProtectedPage';
+import ButtonBack from '../../components/ButtonBack/ButtonBack';
+
 
 const SignupPage = () => {
     useUnprotectedPage()
@@ -62,6 +64,7 @@ const SignupPage = () => {
     }
     return (
         <MainContainer>
+            <ButtonBack/>  
             <ImgContainer>
                 <img src={logoFutureEatsInvert} alt='Imagem da logo'/>
             </ImgContainer>

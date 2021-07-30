@@ -1,19 +1,18 @@
 import React from 'react'
-
 import { Container } from './styles'
 
-const CardProducts = ({product}) => {
-    const image = product && product.photoUrl
+const CardProducts = (props) => {
     return (
         <Container>
             <div className='image'>
-                <img src={product && product.photoUrl} alt="lanche" />
+                <img src={props.image} alt="restaurante" />
             </div>
             <div className='main'>
                 <div className='text'>
-                    <h4>{product && product.name} </h4>
-                    <p className='description'>{product && product.description} </p>
-                    <p>R${product && product.price}</p>
+                    <h4>{props.name}</h4>
+                    <p>{props.ingred}</p>
+                    <p>R${props.price}</p>
+
                 </div>
                 <div className='button'>
                     <span>2</span>

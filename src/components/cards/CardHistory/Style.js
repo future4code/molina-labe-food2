@@ -1,10 +1,5 @@
 import styled from "styled-components";
 
-export const ProfileTitle = styled.h3` 
-    display:flex;
-    justify-content: center;
-    margin: 5px;
-`
 
 export const GeneralContainer = styled.div` 
     margin: 10px;

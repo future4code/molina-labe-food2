@@ -7,7 +7,10 @@ const useRequestData = (initialData, url) => {
 
     useEffect(() => {
         getRequest()
-    }, [])
+
+    },[])
+
+
 
     const getRequest = () => {
         axios.get(url, {
@@ -20,7 +23,7 @@ const useRequestData = (initialData, url) => {
             })
             .catch((err) => {
                 console.log(err.response)
-                alert('Ocorreu um erro!')
+                console.log('Ocorreu um erro!')
 
             })
     }

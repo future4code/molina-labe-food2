@@ -2,20 +2,15 @@ import React from 'react'
 import useForm from '../../hooks/useForm'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { BiChevronLeft } from 'react-icons/bi'
 import { updateProfile } from '../../services/put'
-import { Header, StyledBack, Form, InputsContainer, IconDiv } from './styled'
-import { useHistory } from 'react-router-dom'
+import { Header, Form, InputsContainer, IconDiv, Container } from './styled'
 import OrderInProgress from '../../components/OrderInProgress/OrderInProgress';
+import ButtonBack from '../../components/ButtonBack/ButtonBack'
+import { useProtectedPage } from '../../hooks/useProtectedPage'
 
 const EditPage = () => {
-
-    const history = useHistory()
+    useProtectedPage()
     const { form, onChange, cleanFields } = useForm({ name: "", email: "", cpf: "" })
-
-    const goBackProfile = () => {
-        history.push('/perfil')
-    }
 
     const onClickSubmit = (event) => {
         event.preventDefault()
@@ -27,10 +22,12 @@ const EditPage = () => {
         <div>
             <Header>
                 <IconDiv>
-                    <StyledBack> <BiChevronLeft onClick={goBackProfile} /> </StyledBack>
 
+                    <ButtonBack value={'22px'} />
                     <h2>Editar</h2>
+
                 </IconDiv>
+
             </Header>
 
             <Form onSubmit={onClickSubmit}>

@@ -14,8 +14,25 @@ import { MainContainer, HeaderContainer } from './styled'
 const OrderPage = () => {
     const params = useParams()
     const history = useHistory()
-    const data = useRequestData([], `${BASE_URL}/restaurants/${params.restauranteId}`)
-    const products = data && data.restaurant && data.restaurant.products
+
+    const products = useRequestData(undefined, `${BASE_URL}/restaurants/${params.restauranteId}`)
+
+    const listProducts = products && products.restaurant.products.map((food) => {
+        return ( 
+            <div>
+                <CardProducts
+                    name={food.name}
+                    price={food.price}
+                    ingred={food.price}
+                    image={food.photoUrl}
+                />
+            </div>
+   
+        )
+    })
+
+    console.log("Lista Renderizada", listProducts)
+    console.log("Const product", products)
 
     return (
         <MainContainer>
@@ -25,7 +42,7 @@ const OrderPage = () => {
                     <p>Restaurantes</p>
                 </IconContainer>
             </HeaderContainer>
-            {products && products.map((product, index) => <CardProducts product={product} key={index} />)}
+
         </MainContainer>
     )
 }
