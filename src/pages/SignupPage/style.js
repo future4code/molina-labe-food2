@@ -17,7 +17,7 @@ const MainContainer = styled.div`
 `;
 
 const ImgContainer = styled.div`
-  margin: 54px 0 28px 0;
+  margin: 24px 0 40px 0;
   max-width: 100%;
   width: 104px;
   height: 58px;
@@ -27,4 +27,12 @@ const ImgContainer = styled.div`
   }
 `;
 
-export {MainContainer, ImgContainer}
+const ContainerHeader = styled.div`
+  width: 100%;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+`
+
+export {MainContainer, ImgContainer, ContainerHeader}
