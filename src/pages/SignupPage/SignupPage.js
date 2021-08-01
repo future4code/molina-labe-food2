@@ -1,5 +1,5 @@
 import React from 'react'
-import {MainContainer, ImgContainer} from './style'
+import {MainContainer, ImgContainer, ContainerHeader} from './style'
 import logoFutureEatsInvert from "../../assets/logoFutureEatsInvert.svg";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -16,10 +16,21 @@ import { signup } from "../../services/post";
 import useForm from '../../hooks/useForm'
 import { useUnprotectedPage } from '../../hooks/useUnProtectedPage';
 import ButtonBack from '../../components/ButtonBack/ButtonBack';
+import { makeStyles } from '@material-ui/core/styles'
 
+const useStyles = makeStyles({
+    field:{
+        marginBottom: 16,
+    },
+    btn:{
+        marginBottom: 28,
+        padding: '12px 0' 
+    }
+});
 
 const SignupPage = () => {
     useUnprotectedPage()
+    const classes = useStyles()
     const {form, setForm, onChange, cleanFields} = useForm({
         nome:'',
         email: '',
@@ -64,7 +75,10 @@ const SignupPage = () => {
     }
     return (
         <MainContainer>
-            <ButtonBack/>  
+            <ContainerHeader>
+                <ButtonBack/>
+            </ContainerHeader>
+              
             <ImgContainer>
                 <img src={logoFutureEatsInvert} alt='Imagem da logo'/>
             </ImgContainer>
@@ -73,8 +87,8 @@ const SignupPage = () => {
             <Container component="main" maxWidth="xs">
                 <form onSubmit={onSubmitForm}>
                     <TextField
+                        className={classes.field}
                         fullWidth
-                        margin='normal'
                         label="Nome"
                         variant="outlined"
                         name='nome'
@@ -84,8 +98,8 @@ const SignupPage = () => {
                     />
 
                     <TextField
+                        className={classes.field}
                         fullWidth
-                        margin='normal'
                         label="Email"
                         variant="outlined"
                         name='email'
@@ -96,8 +110,8 @@ const SignupPage = () => {
                     />
 
                     <TextField
+                        className={classes.field}
                         fullWidth
-                        margin='normal'
                         label="CPF"
                         variant="outlined"
                         name='cpf'
@@ -107,7 +121,8 @@ const SignupPage = () => {
                         title='CPF inválido'
                         required
                     />
-                    <FormControl fullWidth variant="outlined" margin='normal' required>   
+
+                    <FormControl fullWidth variant="outlined" className={classes.field} required>   
                         <InputLabel htmlFor="outlined-adornment-password">Senha</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-password"
@@ -132,7 +147,7 @@ const SignupPage = () => {
                         />
                     </FormControl>
 
-                    <FormControl fullWidth variant="outlined" margin='normal' required>   
+                    <FormControl fullWidth variant="outlined" className={classes.field} required>   
                         <InputLabel htmlFor="outlined-adornment-password">Confirmar senha</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-password"
@@ -158,6 +173,7 @@ const SignupPage = () => {
                     </FormControl>
                     
                     <Button 
+                        className={classes.btn}
                         variant='contained'
                         color='primary' 
                         fullWidth

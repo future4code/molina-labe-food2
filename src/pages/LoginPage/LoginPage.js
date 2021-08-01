@@ -58,7 +58,7 @@ const LoginPage = () => {
     return (
         <MainContainer>
             <ImgContainer>
-            <img src={logoFutureEatsInvert} alt='Imagem da logo'/>
+                <img src={logoFutureEatsInvert} alt='Imagem da logo'/>
             </ImgContainer>
 
             <p>Entrar</p>
@@ -67,7 +67,6 @@ const LoginPage = () => {
                     <TextField
                         className={classes.field}
                         fullWidth
-                        margin='normal'
                         id="outlined-read-only-input"
                         label="Email"
                         variant="outlined"
@@ -117,7 +116,6 @@ const LoginPage = () => {
                 <Link to={'/cadastrar'}>
                     <Button 
                         color="primary"
-                        className={classes.btn2}
                     >
                         Não possui cadastro? Clique aqui.
                     </Button>

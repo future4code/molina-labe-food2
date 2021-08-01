@@ -5,12 +5,24 @@ import Container from "@material-ui/core/Container";
 import { useProtectedPage } from '../../hooks/useProtectedPage';
 import useForm from '../../hooks/useForm'
 import ButtonBack from '../../components/ButtonBack/ButtonBack';
-import {MainContainer} from './style'
+import {MainContainer, ContainerHeader} from './style'
 import { useHistory } from 'react-router-dom';
 import {addAdress} from '../../services/put'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles({
+    field:{
+        marginBottom: 16,
+    },
+    btn:{
+        marginBottom: 28,
+        padding: '12px 0' 
+    }
+});
 
 const SignupAddressPage = () => {
     useProtectedPage()
+    const classes = useStyles()
     const {form, setForm, onChange, cleanFields} = useForm({
         street:'',
         number: '',
@@ -39,14 +51,16 @@ const SignupAddressPage = () => {
 
     return (
         <MainContainer>
-            <ButtonBack value={'30px'}/>  
+            <ContainerHeader>
+                <ButtonBack/>    
+            </ContainerHeader>
 
             <p>Meu endereço</p>
             <Container>
             <form onSubmit={onSubmitForm}>
                     <TextField
                         fullWidth
-                        margin='normal'
+                        className={classes.field}
                         label="Rua/Av"
                         variant="outlined"
                         name='street'
@@ -57,7 +71,7 @@ const SignupAddressPage = () => {
 
                     <TextField
                         fullWidth
-                        margin='normal'
+                        className={classes.field}
                         label="Número"
                         variant="outlined"
                         name='number'
@@ -69,7 +83,7 @@ const SignupAddressPage = () => {
 
                     <TextField
                         fullWidth
-                        margin='normal'
+                        className={classes.field}
                         label="Complemento"
                         variant="outlined"
                         name='complement'
@@ -79,7 +93,7 @@ const SignupAddressPage = () => {
 
                     <TextField
                         fullWidth
-                        margin='normal'
+                        className={classes.field}
                         label="Bairro"
                         variant="outlined"
                         name='neighbourhood'
@@ -90,7 +104,7 @@ const SignupAddressPage = () => {
 
                     <TextField
                         fullWidth
-                        margin='normal'
+                        className={classes.field}
                         label="Cidade"
                         variant="outlined"
                         name='city'
@@ -101,7 +115,7 @@ const SignupAddressPage = () => {
                     
                     <TextField
                         fullWidth
-                        margin='normal'
+                        className={classes.field}
                         label="Estado"
                         variant="outlined"
                         name='state'
@@ -111,6 +125,7 @@ const SignupAddressPage = () => {
                     />
                     
                     <Button 
+                        className={classes.btn}
                         variant='contained'
                         color='primary' 
                         fullWidth

@@ -8,7 +8,7 @@ const MainContainer = styled.div`
     p {
         font-size: 1.125em;
         letter-spacing: -0.39px;
-        margin-bottom: 12px;
+        margin: 28px 0 20px 0;
     }
   
     a{
@@ -16,4 +16,12 @@ const MainContainer = styled.div`
     }
 `;
 
-export {MainContainer}
+const ContainerHeader = styled.div`
+  width: 100%;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+`
+
+export {MainContainer, ContainerHeader}
