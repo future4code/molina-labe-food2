@@ -26,17 +26,17 @@ const OrderPage = () => {
                     ingred={food.price}
                     image={food.photoUrl}
                     id={food.id}
-                    onClick={() => addProducts(food)}
+                    // onClick={() => addProducts(food)}
                 />
             </div>
         )
     })
 
-    const addProducts = (foodItem) => {
-        const cart = [...global.cart, foodItem]
-        global.setCart(cart)
-        console.log("Food", foodItem)
-    }
+    // const addProducts = (foodItem) => {
+    //     const cart = [...global.cart, foodItem]
+    //     global.setCart(cart)
+    //     console.log("Food", foodItem)
+    // }
 
 
 

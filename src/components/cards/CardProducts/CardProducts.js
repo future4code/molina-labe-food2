@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Container } from './styles'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -12,6 +12,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { placeOrder } from '../../../services/post';
+import { GlobalContext } from '../../../global/GlobalContext';
 
 const CardProducts = (props) => {
 
@@ -28,10 +29,12 @@ const CardProducts = (props) => {
 
     const classes = useStyles()
     const [open, setOpen] = React.useState(false)
-    const [quantity, setQuantity] = React.useState('')
-
+    const global = useContext(GlobalContext)
     const handleChange = (event) => {
-        setQuantity(Number(event.target.value) || '')
+        global.setProducts({
+            id: props.id,
+            quantity: Number(event.target.value) || ''
+           })
     }
 
     const handleClickOpen = () => {
@@ -40,23 +43,11 @@ const CardProducts = (props) => {
 
     const handleClose = () => {
         setOpen(false)
-        props.onClick()
     }
 
-
-    const onSubmitForm = (event) => {
-        event.preventDefault()
-
-        const body = {
-            products: [{
-                id: "",
-                quantity: 0
-            }],
-            paymentMethod: "",
-        }
-
-        placeOrder(body)
-    }
+    // const onSubmitForm = (event) => {
+    //     event.preventDefault()    
+    // }
 
     return (
         <Container>
@@ -76,7 +67,7 @@ const CardProducts = (props) => {
                             <DialogTitle>Selecione a quantidade desejada:</DialogTitle>
                             <DialogContent>
                                 <form
-                                    onSubmit={onSubmitForm}
+                                    // onSubmit={onSubmitForm}
                                     className={classes.container}>
                                     <FormControl className={classes.formControl}>
                                         <Select
@@ -85,7 +76,7 @@ const CardProducts = (props) => {
                                             onChange={handleChange}
                                             input={<Input id="demo-dialog-native"
                                             />}
-                                            value={quantity}
+                                            value={global.quantity}
                                         >
                                             <option aria-label="None" value="" />
                                             <option value={1}>1</option>

@@ -35,7 +35,7 @@ export const signup = (body, clear, history) => {
     })
 }
 
-export const placeOrder = (body) => {
+export const placeOrder = (body, clear) => {
     
     const headers = {
         headers: {
@@ -45,6 +45,7 @@ export const placeOrder = (body) => {
     axios.post(`${BASE_URL}/restaurants/:restaurantId/order`, body, headers)
         .then((res) => {
             localStorage.setItem("token", res.data.token)
+            clear()
         })
         .catch((err) => {
             console.log(err)

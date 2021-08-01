@@ -13,6 +13,8 @@ import Button from '@material-ui/core/Button';
 import useForm from '../../hooks/useForm';
 import { placeOrder } from '../../services/post';
 import { GlobalContext } from '../../global/GlobalContext';
+import CardProducts from '../../components/cards/CardProducts/CardProducts';
+import Header from '../../components/header/Header';
 
 const CartPage = () => {
     const global = useContext(GlobalContext)
@@ -26,14 +28,36 @@ const CartPage = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        placeOrder(form)
-        cleanFields()
+
+        const foodArray = global.cart.map((food) => {
+            return {
+                id: food.id,
+                quantity:food.quantity
+            }
+        })
+
+        const body = {
+            products: foodArray,
+            paymentMethod: form.paymentMethod,
+        }
+
+        placeOrder(body, cleanFields)
     }
 
-console.log(global)
+    console.log("Carrinho", global.cart)
 
-
-
+const displayCards = global.cart && global.cart.length > 0 ? global.cart.map((food) => {
+    return (
+        <CardProducts 
+            key={food.id}
+            name={food.name}
+            price={food.price}
+            ingred={food.price}
+            image={food.photoUrl}
+            id={food.id}
+            />
+    )
+}) : <p>Carrinho Vazio</p>
 
 
     return (
@@ -42,7 +66,7 @@ console.log(global)
                 Meu Carrinho
             </HeaderContainer>
             <ItensContainer>
-                <p>Carrinho vazio</p>
+                {displayCards}
             </ItensContainer>
             <ShippingContainer>
                 <p>Frete</p>
@@ -57,11 +81,23 @@ console.log(global)
             </TextContainer>
             <FormContainer onSubmit={onSubmitForm}>
                 <div>
-                    <input type="radio" />
+                    <input 
+                        valeu={form.paymentMethod}
+                        type="radio"
+                        id="debitcard"
+                        name="paymentMethod"
+                        onChange={onChange}
+                         />
                     <label>Dinheiro</label>
-                </div>
-                <div>
-                    <input type="radio" />
+                    </div>
+                    <div>
+                    <input 
+                        value={form.paymentMethod}
+                        type="radio"
+                        id="debitcard"
+                        name="paymentMethod"
+                        onChange={onChange}
+                     />
                     <label>Cartão dinheiro</label>
                 </div>
                 <ButtonContainer>
@@ -74,6 +110,7 @@ console.log(global)
                     </Button>
                 </ButtonContainer>
             </FormContainer>
+            <Header />
         </MainContainer>
     )
 }
