@@ -7,6 +7,7 @@ export const MainContainer = styled.div`
 export const ButtonContainer = styled.div`
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
     bottom: 14vw;
     position: fixed;
@@ -30,7 +31,9 @@ export const HeaderContainer = styled.div`
 export const ItensContainer = styled.div`
     display: flex;
     justify-content: center;
+    text-align: center;
     margin: 4px;
+    flex-direction: column;
 `
 
 export const ShippingContainer = styled.div`
@@ -53,6 +56,5 @@ export const TextContainer = styled.div`
 export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     padding: 16px 0px 0px 16px;
 `
