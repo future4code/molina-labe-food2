@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Container } from './styles'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -11,6 +11,8 @@ import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { placeOrder } from '../../../services/post';
+import { GlobalContext } from '../../../global/GlobalContext';
 
 const CardProducts = (props) => {
 
@@ -25,21 +27,27 @@ const CardProducts = (props) => {
         },
     }));
 
-    const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
-    const [age, setAge] = React.useState('');
-
+    const classes = useStyles()
+    const [open, setOpen] = React.useState(false)
+    const global = useContext(GlobalContext)
     const handleChange = (event) => {
-        setAge(Number(event.target.value) || '');
-    };
+        global.setProducts({
+            id: props.id,
+            quantity: Number(event.target.value) || ''
+           })
+    }
 
     const handleClickOpen = () => {
         setOpen(true);
-    };
+    }
 
     const handleClose = () => {
-        setOpen(false);
-    };
+        setOpen(false)
+    }
+
+    // const onSubmitForm = (event) => {
+    //     event.preventDefault()    
+    // }
 
     return (
         <Container>
@@ -51,24 +59,24 @@ const CardProducts = (props) => {
                     <h4>{props.name}</h4>
                     <p>{props.ingred}</p>
                     <p>R${props.price}</p>
-
                 </div>
                 <div className='button'>
                     <span>
-                        <Button onClick={handleClickOpen}>{props.quantity}</Button>
+                        <Button>0</Button>
                         <Dialog open={open} onClose={handleClose}>
                             <DialogTitle>Selecione a quantidade desejada:</DialogTitle>
                             <DialogContent>
-                                <form className={classes.container}>
+                                <form
+                                    // onSubmit={onSubmitForm}
+                                    className={classes.container}>
                                     <FormControl className={classes.formControl}>
-                                        {/* <InputLabel htmlFor="demo-dialog-native"></InputLabel> */}
                                         <Select
                                             native
                                             id={props.id}
-                                            quantytite={props.quantity}
                                             onChange={handleChange}
                                             input={<Input id="demo-dialog-native"
                                             />}
+                                            value={global.quantity}
                                         >
                                             <option aria-label="None" value="" />
                                             <option value={1}>1</option>
@@ -81,19 +89,16 @@ const CardProducts = (props) => {
                                             <option value={8}>8</option>
                                             <option value={9}>9</option>
                                             <option value={10}>10</option>
-
                                         </Select>
+                                        <Button  onClick={handleClose} color="primary">
+                                            Adicionar ao carrinho
+                                        </Button>
                                     </FormControl>
                                 </form>
                             </DialogContent>
-                            <DialogActions>
-                                <Button onClick={handleClose} color="primary">
-                                    Adicionar ao carrinho
-                                </Button>
-                            </DialogActions>
                         </Dialog>
                     </span>
-                    <button>{props.addButton}Adicionar</button>
+                    <button onClick={handleClickOpen}>Adicionar</button>
                 </div>
             </div>
         </Container>

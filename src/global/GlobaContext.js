@@ -1,28 +1,16 @@
-import React, { useState, useEffect } from "react"
+import React from 'react'
 
-const GlobalState = (props) => {
-    // variavel products ela vem do endpoint
+export const GlobalContext = React.createContext()
 
-    const [ orders, setOrders ] = useState({})
-    const [ sendCart, setSendCart ] = useState([])
-    const [ cart, setCart ] = useState([])
+export const GlobalStorage = ({children}) => {
+    const [ cart, setCart] = React.useState([])
+    const [ products, setProducts ] = React.useState({})
 
-    useEffect(() => {
-        const product = products.filter((product) => {
-            if (product.id === orders.id) {
-                return product
-            }
-        })
-        setSendCart(...sendCart, product)
+    console.log(products)
 
-        HandlePedidos()
-    }, [orders])
-
-    const HandlePedidos = () => {
-        const filterOrders = sendCart.filter((elemento) => {
-            if ( elemento.id === order.id ) {
-                return 
-            }
-        })
-    }
+    return(
+        <GlobalContext.Provider value={{cart, setCart, products, setProducts}}>
+            {children}
+        </GlobalContext.Provider>
+    ) 
 }
