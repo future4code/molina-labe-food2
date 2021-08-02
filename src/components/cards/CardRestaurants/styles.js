@@ -13,7 +13,7 @@ export const Container = styled.div`
     border-top-left-radius: 8px;
 
     img {
-      width: 100%;
+      width: 84vw;
       margin-top: -35px;
     }
   }
