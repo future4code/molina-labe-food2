@@ -10,13 +10,12 @@ O que funciona
 
 - Perfil, Editar Perfil e Histórico de Pedidos
 
+- Carrinho e Finalizar Compra (Com problemas de estilização)
 
 
 O que não funciona
 
 - Exibe todas as imagens e textos
-
-- Carrinho e Finalizar Compra
 
 Link Surge
 
