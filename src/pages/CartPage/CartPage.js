@@ -10,8 +10,6 @@ import {
     FormContainer
 } from './styles'
 import Button from '@material-ui/core/Button';
-import { useHistory } from 'react-router-dom';
-
 
 const CartPage = () => {
 

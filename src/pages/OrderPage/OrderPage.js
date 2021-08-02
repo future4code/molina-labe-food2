@@ -10,6 +10,7 @@ import { useParams } from 'react-router'
 import { MainContainer, HeaderContainer, Container } from './styled'
 
 const OrderPage = () => {
+
     const params = useParams()
     const history = useHistory()
     const products = useRequestData(undefined, `${BASE_URL}/restaurants/${params.restauranteId}`)
@@ -26,9 +27,6 @@ const OrderPage = () => {
             </div>
         )
     })
-
-    
-
 
     console.log("Lista Renderizada", listProducts)
     console.log("Const product", products)

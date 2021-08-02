@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Container } from './styled'
 
-import { Container } from './styles'
 
 const CardRestaurant = (props) => {
+
+    
+
     const restaurant = props.restaurants
     const restaurantId = restaurant && restaurant.id
     
