@@ -18,7 +18,6 @@ O que não funciona
 - Exibe todas as imagens e textos
 
 Link Surge
-
-https://flashy-silver.surge.sh
+https://trashy-comfort.surge.sh/
 
 Imagens
