@@ -59,7 +59,7 @@ const ProfilePage = () => {
                     <div>
                         <NameContainer>
                             <p>{profile.user.name}</p>
-                            <Link to="/editar"><span><CreateOutlinedIcon onClick={profile.user.onClick} /></span></Link>
+                            <Link to="/editar"><span><CreateOutlinedIcon color="disabled" onClick={profile.user.onClick} /></span></Link>
                         </NameContainer>
 
                         <Email >{profile.user.email}</Email>
@@ -69,7 +69,7 @@ const ProfilePage = () => {
                             <Address>Registered Address</Address>
                             <AddressData>
                                 <p>{profile.user.address}</p>
-                                <Link to="/cadastrar/endereco"><span><CreateOutlinedIcon onClick={profile.user.onClick} /></span></Link>
+                                <Link to="/cadastrar/endereco"><span><CreateOutlinedIcon color="disabled" onClick={profile.user.onClick} /></span></Link>
                             </AddressData>
                         </AddressContainer>
 
