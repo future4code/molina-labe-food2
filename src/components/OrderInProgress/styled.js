@@ -5,6 +5,8 @@ width: 100%;
 height: 118px;
 background: #e86e5a;
 display: flex;
+position: fixed;
+margin-top: 574px;
 `
 
 export const IconDiv = styled.div`

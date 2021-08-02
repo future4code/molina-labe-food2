@@ -11,39 +11,40 @@ import { FormControl, OutlinedInput, TextField } from "@material-ui/core";
 import useForm from '../../hooks/useForm'
 import { Link, useHistory } from "react-router-dom";
 import { login } from "../../services/post";
-import {MainContainer, ImgContainer} from './style'
+import { MainContainer, ImgContainer } from './style'
 import { useUnprotectedPage } from "../../hooks/useUnProtectedPage";
 import { makeStyles } from '@material-ui/core/styles'
 
+
 const useStyles = makeStyles({
-    field:{
+    field: {
         marginBottom: 16,
     },
-    btn:{
+    btn: {
         marginBottom: 28,
-        padding: '12px 0' 
+        padding: '12px 0'
     }
 });
 
 const LoginPage = () => {
     useUnprotectedPage()
     const classes = useStyles()
-    const {form, setForm, onChange, cleanFields} = useForm({
+    const { form, setForm, onChange, cleanFields } = useForm({
         email: '',
         password: '',
         showPassword: false
     })
-    const history = useHistory()   
+    const history = useHistory()
 
     const handleClickShowPassword = () => {
         setForm({ ...form, showPassword: !form.showPassword });
     };
-    
-      const handleMouseDownPassword = (event) => {
+
+    const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
 
-    const onSubmitForm = (event) =>{
+    const onSubmitForm = (event) => {
         event.preventDefault()
 
         const body = {
@@ -52,13 +53,13 @@ const LoginPage = () => {
         }
 
         login(body, cleanFields, history)
-        
+
     }
 
     return (
         <MainContainer>
             <ImgContainer>
-                <img src={logoFutureEatsInvert} alt='Imagem da logo'/>
+                <img src={logoFutureEatsInvert} alt='Imagem da logo' />
             </ImgContainer>
 
             <p>Entrar</p>
@@ -77,7 +78,7 @@ const LoginPage = () => {
                         required
                     />
 
-                    <FormControl fullWidth variant="outlined" className={classes.field} required>   
+                    <FormControl fullWidth variant="outlined" className={classes.field} required>
                         <InputLabel htmlFor="outlined-adornment-password">Senha</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-password"
@@ -86,24 +87,24 @@ const LoginPage = () => {
                             value={form.password}
                             onChange={onChange}
                             endAdornment={
-                            <InputAdornment position="end">
-                                <IconButton
-                                aria-label="toggle password visibility"
-                                onClick={handleClickShowPassword}
-                                onMouseDown={handleMouseDownPassword}
-                                edge="end"
-                                >
-                                {form.showPassword ? <Visibility /> : <VisibilityOff />}
-                                </IconButton>
-                            </InputAdornment>
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={handleClickShowPassword}
+                                        onMouseDown={handleMouseDownPassword}
+                                        edge="end"
+                                    >
+                                        {form.showPassword ? <Visibility /> : <VisibilityOff />}
+                                    </IconButton>
+                                </InputAdornment>
                             }
                             labelWidth={70}
                         />
                     </FormControl>
-                    
+
                     <Button
                         variant='contained'
-                        color='primary' 
+                        color='primary'
                         fullWidth
                         size="large"
                         type='submit'
@@ -112,18 +113,18 @@ const LoginPage = () => {
                         Entrar
                     </Button>
                 </form>
-                        
+
                 <Link to={'/cadastrar'}>
-                    <Button 
+                    <Button
                         color="primary"
                     >
                         Não possui cadastro? Clique aqui.
                     </Button>
                 </Link>
-           
+
             </Container>
         </MainContainer>
-  );
+    );
 };
 
 export default LoginPage;

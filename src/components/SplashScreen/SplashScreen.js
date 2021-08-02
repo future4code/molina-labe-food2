@@ -1,6 +1,6 @@
 import React from 'react'
 import { MainContainer, StyledLogo } from './styled'
-import Logo from '../../assets/logo-future-eats.svg'
+import Logo from '../../assets/logoFutureEats.svg'
 
 
 
