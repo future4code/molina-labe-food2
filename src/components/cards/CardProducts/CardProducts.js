@@ -15,7 +15,7 @@ import { placeOrder } from '../../../services/post';
 import { GlobalContext } from '../../../global/GlobalContext';
 
 const CardProducts = (props) => {
-
+    // deletar linha
     const useStyles = makeStyles((theme) => ({
         container: {
             display: 'flex',
