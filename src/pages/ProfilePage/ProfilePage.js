@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import { GeneralContainer, BarContainer, NameContainer, Email, Cpf, Address, AddressContainer, AddressData, HistoryTitle, Title } from "./Style"
 import axios from "axios"
+import Header from "../../components/header/Header"
+
 
 const ProfilePage = () => {
     useProtectedPage()
@@ -79,6 +81,7 @@ const ProfilePage = () => {
                 }
 
                 {ordersInfo ? ordersInfo : <p>Carregando...</p>}
+            <Header />  
 
         </GeneralContainer>
 
