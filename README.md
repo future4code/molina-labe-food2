@@ -8,11 +8,11 @@ O que funciona
 
 - Cardápio do Restaurante 
 
+- Perfil, Editar Perfil e Histórico de Pedidos
+
 
 
 O que não funciona
-
-- Perfil, Editar Perfil e Histórico de Pedidos
 
 - Exibe todas as imagens e textos
 
