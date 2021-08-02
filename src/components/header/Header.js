@@ -8,7 +8,7 @@ import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
 const Header = () => {
     return (
         <HeaderContainer>
-            <Link to="/"><span><HouseOutlinedIcon fontSize="large"/></span></Link>
+            <a href="/"><span><HouseOutlinedIcon fontSize="large"/></span></a>
             <Link to="/carrinho"><span><ShoppingCartOutlinedIcon fontSize="large"/></span></Link>
             <Link to="/perfil"><span><PersonOutlineOutlinedIcon fontSize="large"/></span></Link>
         </HeaderContainer>

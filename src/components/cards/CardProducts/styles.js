@@ -7,6 +7,9 @@ export const Container = styled.div`
   height: 112px;
 
   .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 97px;
     height: 100%;
     overflow: hidden;
@@ -14,8 +17,8 @@ export const Container = styled.div`
     border-top-left-radius: 8px;
     
     img {
-      height: 100%;
-      margin-left: -60px;
+      width: 100%;
+      height: auto;
     }
   }
 

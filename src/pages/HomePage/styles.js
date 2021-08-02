@@ -7,6 +7,26 @@ export const Container = styled.div`
   gap: 8px;
   padding-bottom: 7vh;
 
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 44px;
+
+    h1 {
+      font-size: 16px;
+      font-weight: normal;
+    }
+
+  }
+  
+  .row {
+    opacity: 0.3;
+    width: 100%;
+    margin-top: -6px;
+  }
+
   .search {
     display: flex;
     align-items: center;
@@ -38,15 +58,16 @@ export const Container = styled.div`
 
   .menu {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    width: 100%;
     height: 42px;
     gap: 8px;
 
-    a {
+    button {
       color: black;
       font-size: 16px;
-      width: 87px;
+      border: none;
+      background-color: white;
 
       :hover {
         color: #e86e5a;

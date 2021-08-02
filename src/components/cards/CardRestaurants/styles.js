@@ -22,7 +22,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     padding: 10px;
-    width: 93.5%;
+    width: 100%;
     gap: 4px;
     border-bottom: solid 1px #b8b8b8;
     border-left: solid 1px #b8b8b8;
