@@ -15,9 +15,11 @@ import { placeOrder } from '../../services/post';
 import { GlobalContext } from '../../global/GlobalContext';
 import CardProducts from '../../components/cards/CardProducts/CardProducts';
 import Header from '../../components/header/Header';
+import { useHistory } from 'react-router-dom';
 
 const CartPage = () => {
     const global = useContext(GlobalContext)
+    const history = useHistory()
     
     const { form, setForm, onChange, cleanFields } = useForm({
         paymentMethod: "",
@@ -33,7 +35,7 @@ const CartPage = () => {
             paymentMethod: form.paymentMethod,
         }
 
-        placeOrder(body, global.restaurantId, cleanFields)
+        placeOrder(body, global.restaurantId, cleanFields, history)
     }
 
 
@@ -73,9 +75,9 @@ const CartPage = () => {
             <FormContainer onSubmit={onSubmitForm} value={form.paymentMethod}>
                 <div>
                     <input 
-                        value='debitcard'
+                        value='money'
                         type="radio"
-                        id="debitcard"
+                        id="money"
                         name="paymentMethod"
                         onChange={onChange}
                     />

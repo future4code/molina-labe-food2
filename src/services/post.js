@@ -1,6 +1,6 @@
 import axios from "axios"
 import { BASE_URL } from "../constants/url"
-import { goToHome, goToSignUpAddress } from "../router/Coordinator"
+import { goToHome, goToLogin, goToSignUpAddress } from "../router/Coordinator"
 
 export const login = (body, clear, history) => {
 
@@ -30,12 +30,12 @@ export const signup = (body, clear, history) => {
         goToSignUpAddress(history)
     })
     .catch((err) => {
-        console.log(err)
+        console.log(err.response)
         alert("Algo de errado aconteceu!")
     })
 }
 
-export const placeOrder = (body, params, clear) => {
+export const placeOrder = (body, params, clear, history) => {
     console.log('body', body)
     console.log('id do restaurante', params)
     
@@ -49,10 +49,11 @@ export const placeOrder = (body, params, clear) => {
         .then((res) => {
             console.log(res.data)
             clear()
+            goToHome(history)
         })
         .catch((err) => {
-            console.log(err)
-            alert("Erro em requisitar!")
+            console.log(err.response)
+            alert(err.response.data.message)
         })
 }
 
