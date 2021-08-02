@@ -18,46 +18,37 @@ import Header from '../../components/header/Header';
 
 const CartPage = () => {
     const global = useContext(GlobalContext)
+    
     const { form, setForm, onChange, cleanFields } = useForm({
-        products: [{
-            id: "",
-            quantity: 0
-        }],
         paymentMethod: "",
     })
+
+    console.log('foma de pagamento', form.paymentMethod)
 
     const onSubmitForm = (event) => {
         event.preventDefault()
 
-        const foodArray = global.cart.map((food) => {
-            return {
-                id: food.id,
-                quantity:food.quantity
-            }
-        })
-
         const body = {
-            products: foodArray,
+            products: global.products,
             paymentMethod: form.paymentMethod,
         }
 
-        placeOrder(body, cleanFields)
+        placeOrder(body, global.restaurantId, cleanFields)
     }
 
-    console.log("Carrinho", global.cart)
 
-const displayCards = global.cart && global.cart.length > 0 ? global.cart.map((food) => {
-    return (
-        <CardProducts 
-            key={food.id}
-            name={food.name}
-            price={food.price}
-            ingred={food.price}
-            image={food.photoUrl}
-            id={food.id}
-            />
-    )
-}) : <p>Carrinho Vazio</p>
+    const displayCards = global.cart && global.cart.length > 0 ? global.cart.map((food) => {
+        return (
+            <CardProducts 
+                key={food.id}
+                name={food.name}
+                price={food.price}
+                ingred={food.price}
+                image={food.photoUrl}
+                id={food.id}
+                />
+        )
+    }) : <p>Carrinho Vazio</p>
 
 
     return (
@@ -79,22 +70,22 @@ const displayCards = global.cart && global.cart.length > 0 ? global.cart.map((fo
             <TextContainer>
                 <p>Forma de pagamento</p>
             </TextContainer>
-            <FormContainer onSubmit={onSubmitForm}>
+            <FormContainer onSubmit={onSubmitForm} value={form.paymentMethod}>
                 <div>
                     <input 
-                        valeu={form.paymentMethod}
+                        value='debitcard'
                         type="radio"
                         id="debitcard"
                         name="paymentMethod"
                         onChange={onChange}
-                         />
+                    />
                     <label>Dinheiro</label>
                     </div>
-                    <div>
+                <div>
                     <input 
-                        value={form.paymentMethod}
+                        value='creditcard'
                         type="radio"
-                        id="debitcard"
+                        id="creditcard"
                         name="paymentMethod"
                         onChange={onChange}
                      />

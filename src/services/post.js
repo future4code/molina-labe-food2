@@ -1,6 +1,6 @@
 import axios from "axios"
 import { BASE_URL } from "../constants/url"
-import { goToHome } from "../router/Coordinator"
+import { goToHome, goToSignUpAddress } from "../router/Coordinator"
 
 export const login = (body, clear, history) => {
 
@@ -27,7 +27,7 @@ export const signup = (body, clear, history) => {
     .then((res) => {
         localStorage.setItem("token", res.data.token)
         clear()
-        goToHome(history)
+        goToSignUpAddress(history)
     })
     .catch((err) => {
         console.log(err)
@@ -35,16 +35,19 @@ export const signup = (body, clear, history) => {
     })
 }
 
-export const placeOrder = (body, clear) => {
+export const placeOrder = (body, params, clear) => {
+    console.log('body', body)
+    console.log('id do restaurante', params)
     
     const headers = {
         headers: {
-            Authorization: localStorage.getItem('token')
+            auth: localStorage.getItem('token')
         }
     }
-    axios.post(`${BASE_URL}/restaurants/:restaurantId/order`, body, headers)
+    axios.post(`${BASE_URL}/restaurants/${params}/order`, body, headers)
+
         .then((res) => {
-            localStorage.setItem("token", res.data.token)
+            console.log(res.data)
             clear()
         })
         .catch((err) => {
