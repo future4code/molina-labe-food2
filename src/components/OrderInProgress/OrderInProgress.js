@@ -9,6 +9,7 @@ const OrderInProgress = () => {
 
     let currentOrder = order.order
 
+
     return <OrderCard>
         <IconDiv>
             <Icone> <AccessTimeIcon fontSize='large' /> </Icone>
@@ -21,7 +22,7 @@ const OrderInProgress = () => {
                 <h4>{currentOrder.restaurantName}</h4>
             </DescriptionDiv>
             <DescriptionDiv>
-                <h5>SUBTOTAL R${currentOrder.totalPrice},00</h5>
+                <h5>SUBTOTAL R${currentOrder.totalPrice}</h5>
             </DescriptionDiv>
         </InfoDiv>}
     </OrderCard>

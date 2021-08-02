@@ -6,13 +6,15 @@ import search from '../../assets/search.svg'
 import Header from '../../components/header/Header'
 import { Container } from './styles'
 import Carousel from 'react-elastic-carousel'
-import {useProtectedPage} from '../../hooks/useProtectedPage'
+import OrderInProgress from '../../components/OrderInProgress/OrderInProgress';
+import { useProtectedPage } from '../../hooks/useProtectedPage'
 
 const HomePage = () => {
     useProtectedPage()
     const data = useRequestData([], `${BASE_URL}/restaurants`)
     const restaurants = data && data.restaurants
     const [filtered, setFiltered] = useState()
+    const order = useRequestData([], `${BASE_URL}/active-order`)
 
     useEffect(() => {
         setFiltered(restaurants)
@@ -27,6 +29,7 @@ const HomePage = () => {
 
     return (
         <>
+        
             <Container>
                 <div className='header'>
                     <h1>Rappi4</h1>
@@ -46,6 +49,7 @@ const HomePage = () => {
                 {filtered && filtered.map((restaurant, index) => {
                     return <CardRestaurant restaurants={restaurant} key={index} />
                 })}
+                {order.order === null ? <div></div> : <OrderInProgress />}
             </Container>
             <Header />
         </>

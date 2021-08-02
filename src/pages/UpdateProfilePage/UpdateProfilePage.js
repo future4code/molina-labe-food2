@@ -4,7 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { updateProfile } from '../../services/put'
 import { Header, Form, InputsContainer, IconDiv, Container } from './styled'
-import OrderInProgress from '../../components/OrderInProgress/OrderInProgress';
 import ButtonBack from '../../components/ButtonBack/ButtonBack'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
 
@@ -87,7 +86,7 @@ const EditPage = () => {
                 </InputsContainer>
             </Form>
 
-            <OrderInProgress />
+            
         </div>
     )
 }
