@@ -13,9 +13,10 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { placeOrder } from '../../../services/post';
 import { GlobalContext } from '../../../global/GlobalContext';
+import { useParams } from 'react-router-dom'
 
 const CardProducts = (props) => {
-
+    const params = useParams()
     const useStyles = makeStyles((theme) => ({
         container: {
             display: 'flex',
@@ -31,10 +32,18 @@ const CardProducts = (props) => {
     const [open, setOpen] = React.useState(false)
     const global = useContext(GlobalContext)
     const handleChange = (event) => {
-        global.setProducts({
+        // global.setProducts({
+        //     id: props.id,
+        //     quantity: Number(event.target.value) || ''
+        // })
+
+        const product = {
             id: props.id,
             quantity: Number(event.target.value) || ''
-           })
+        }
+
+        const newProducts = [...global.products, product]
+        global.setProducts(newProducts)
     }
 
     const handleClickOpen = () => {
@@ -43,11 +52,13 @@ const CardProducts = (props) => {
 
     const handleClose = () => {
         setOpen(false)
+        props.onClick()
+        global.setRestaurantId(params.restauranteId)
     }
 
-    // const onSubmitForm = (event) => {
-    //     event.preventDefault()    
-    // }
+    const onSubmitForm = (event) => {
+        event.preventDefault()    
+    }
 
     return (
         <Container>
@@ -67,7 +78,7 @@ const CardProducts = (props) => {
                             <DialogTitle>Selecione a quantidade desejada:</DialogTitle>
                             <DialogContent>
                                 <form
-                                    // onSubmit={onSubmitForm}
+                                    onSubmit={onSubmitForm}
                                     className={classes.container}>
                                     <FormControl className={classes.formControl}>
                                         <Select

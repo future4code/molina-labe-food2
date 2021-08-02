@@ -6,7 +6,7 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 import { IconContainer } from './styled'
 import { BASE_URL } from '../../constants/url'
 import useRequestData from '../../hooks/useRequestData'
-import { useParams } from 'react-router'
+import { useParams } from 'react-router-dom'
 import { MainContainer, HeaderContainer, Container } from './styled'
 import { GlobalContext } from '../../global/GlobalContext'
 
@@ -18,30 +18,24 @@ const OrderPage = () => {
 
     const listProducts = products && products.restaurant.products.map((food) => {
         return ( 
-            <div>
+            <div key={food.id}>
                 <CardProducts
-                    key={food.id}
                     name={food.name}
                     price={food.price}
                     ingred={food.price}
                     image={food.photoUrl}
                     id={food.id}
-                    // onClick={() => addProducts(food)}
+                    onClick={() => addProducts(food)}
                 />
             </div>
         )
     })
 
-    // const addProducts = (foodItem) => {
-    //     const cart = [...global.cart, foodItem]
-    //     global.setCart(cart)
-    //     console.log("Food", foodItem)
-    // }
-
-
-
-    // console.log("Lista Renderizada", listProducts)
-    // console.log("Const product", products)
+    const addProducts = (foodItem) => {
+        const newCart = [...global.cart, foodItem]
+        global.setCart(newCart)
+        console.log("Food", foodItem)
+    }
 
     return (
         <MainContainer>
