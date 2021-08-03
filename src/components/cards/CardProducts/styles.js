@@ -54,15 +54,7 @@ export const Container = styled.div`
       align-items: flex-end;
 
       span {
-        border-top-right-radius: 8px;
-        border-bottom-left-radius: 8px;
-        border: solid 1px var(--orange-color);
         color: var(--orange-color);
-        width: 33px;
-        height: 33px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
       }
 
       button {
