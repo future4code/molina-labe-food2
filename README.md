@@ -10,7 +10,7 @@ O que funciona
 
 - Perfil, Editar Perfil e Histórico de Pedidos
 
-- Carrinho e Finalizar Compra (Com problemas de estilização)
+- Carrinho e Finalizar Compra (com problemas)
 
 
 O que não funciona
