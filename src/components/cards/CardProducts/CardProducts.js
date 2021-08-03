@@ -68,7 +68,7 @@ const CardProducts = (props) => {
             <div className='main'>
                 <div className='text'>
                     <h4>{props.name}</h4>
-                    <p>{props.ingred}</p>
+                    <p>{props.description}</p>
                     <p>R${props.price}</p>
                 </div>
                 <div className='button'>

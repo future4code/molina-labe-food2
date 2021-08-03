@@ -20,7 +20,7 @@ import { useHistory } from 'react-router-dom';
 const CartPage = () => {
     const global = useContext(GlobalContext)
     const history = useHistory()
-    
+
     const { form, setForm, onChange, cleanFields } = useForm({
         paymentMethod: "",
     })
@@ -41,14 +41,14 @@ const CartPage = () => {
 
     const displayCards = global.cart && global.cart.length > 0 ? global.cart.map((food) => {
         return (
-            <CardProducts 
+            <CardProducts
                 key={food.id}
                 name={food.name}
                 price={food.price}
-                ingred={food.price}
+                description={food.description}
                 image={food.photoUrl}
                 id={food.id}
-                />
+            />
         )
     }) : <p>Carrinho Vazio</p>
 
@@ -74,7 +74,7 @@ const CartPage = () => {
             </TextContainer>
             <FormContainer onSubmit={onSubmitForm} value={form.paymentMethod}>
                 <div>
-                    <input 
+                    <input
                         value='money'
                         type="radio"
                         id="money"
@@ -82,21 +82,21 @@ const CartPage = () => {
                         onChange={onChange}
                     />
                     <label>Dinheiro</label>
-                    </div>
+                </div>
                 <div>
-                    <input 
+                    <input
                         value='creditcard'
                         type="radio"
                         id="creditcard"
                         name="paymentMethod"
                         onChange={onChange}
-                     />
+                    />
                     <label>Cartão dinheiro</label>
                 </div>
                 <ButtonContainer>
                     <Button
                         variant="contained"
-                        color="secondary"
+                        color="primary"
                         type="submit"
                     >
                         Confirmar

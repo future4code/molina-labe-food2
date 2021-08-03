@@ -14,9 +14,7 @@ export const ButtonContainer = styled.div`
         button {
             width: 88vw;
             height: 6.4vh;
-            background-color: rgba(232, 110, 90, 0.5);
             border: none;
-            color: black;
         }
 `
 

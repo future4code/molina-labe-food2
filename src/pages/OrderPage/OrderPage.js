@@ -22,7 +22,7 @@ const OrderPage = () => {
                 <CardProducts
                     name={food.name}
                     price={food.price}
-                    ingred={food.price}
+                    description={food.description}
                     image={food.photoUrl}
                     id={food.id}
                     onClick={() => addProducts(food)}
