@@ -1,68 +1,31 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# rappi4B
 
-## Available Scripts
+O que funciona
 
-In the project directory, you can run:
+- Fluxo de Login/Cadastro
 
-### `npm start`
+- Busca e Seleção de Restaurantes
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Cardápio do Restaurante 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Perfil, Editar Perfil e Histórico de Pedidos
 
-### `npm test`
+- Carrinho e Finalizar Compra (com problemas)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+O que não funciona
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Exibe todas as imagens e textos
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Link Surge
+https://diligent-stop.surge.sh/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Imagens
 
-### `npm run eject`
+![image](https://user-images.githubusercontent.com/83032703/128066808-6c8f422d-57b3-4b67-b097-4cc6ed893a30.png)
+![image](https://user-images.githubusercontent.com/83032703/128066876-6448fb1e-2f97-43fb-9bdc-e34514c6bd9d.png)
+![image](https://user-images.githubusercontent.com/83032703/128066947-cbb5d1b4-b9a8-4ce5-8d23-628ae3feff7b.png)
+![image](https://user-images.githubusercontent.com/83032703/128066993-e3675aee-0ae0-4f5e-ac73-01b4828f5a5a.png)
+![image](https://user-images.githubusercontent.com/83032703/128067063-c08cdded-a96a-4215-b55f-318f46ebe620.png)
+![image](https://user-images.githubusercontent.com/83032703/128067162-4ba23b4a-b76e-463e-82d2-0b23e7990b2d.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

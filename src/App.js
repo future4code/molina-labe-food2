@@ -1,25 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Route from './router/Route'
+import { GlobalStyle } from './assets/styles/globalStyles'
+import ThemeProvider from '@material-ui/styles/ThemeProvider';
+import theme from './constants/theme';
+import { GlobalStorage } from './global/GlobalContext';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <GlobalStorage>
+        <Route />
+      </GlobalStorage>
+    </ThemeProvider>
   );
 }
 
